@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotionCraft | Premium Video Content Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a1a2a;
+            --secondary: #102a44;
+            --accent: #3a86ff;
+            --accent2: #5bc0be;
+            --text: #f8f9fa;
+            --text-secondary: #a3b1c6;
+            --glass: rgba(22, 44, 66, 0.5);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --border-radius: 24px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(16, 42, 68, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(58, 134, 255, 0.2) 0%, transparent 40%);
+            min-height: 100vh;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+            transition: var(--transition);
+            background: rgba(10, 26, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(58, 134, 255, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .logo span {
+            color: var(--text);
+            font-weight: 700;
+        }
+        
+        .logo:before {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(58, 134, 255, 0.1);
+            z-index: -1;
+            left: -15px;
+            top: -10px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding-top: 180px;
+            padding-bottom: 100px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            line-height: 1;
+            position: relative;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .hero h1 span:after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: rgba(58, 134, 255, 0.2);
+            z-index: -1;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 45px;
+            background: var(--accent);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        .btn:hover:before {
+            width: 100%;
+        }
+        
+        .hero-visual {
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .hero-card {
+            background: var(--glass);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+            transform: rotate3d(0.5, 1, 0, 15deg);
+            transition: transform 0.6s ease;
+        }
+        
+        .hero-card:hover {
+            transform: rotate3d(0.2, 0.5, 0, 10deg);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .card-item {
+            background: rgba(22, 44, 66, 0.6);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-item:before {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 140%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            top: -20%;
+            left: -100%;
+            transition: left 0.6s ease;
+        }
+        
+        .card-item:hover:before {
+            left: 100%;
+        }
+        
+        .card-item i {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+        }
+        
+        .card-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 150px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 5rem;
+            color: rgba(163, 177, 198, 0.05);
+            position: absolute;
+            top: 60px;
+            left: 5%;
+            z-index: -1;
+            font-weight: 900;
+        }
+        
+        .section-header {
+            margin-bottom: 80px;
+            max-width: 700px;
+        }
+        
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 30px;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .service-category {
+            background: var(--glass);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .service-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .service-category h3 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .service-category h3 i {
+            font-size: 2rem;
+        }
+        
+        .service-list {
+            list-style: none;
+        }
+        
+        .service-list li {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(58, 134, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .service-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(58, 134, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        
+        .service-details h4 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        
+        .service-details p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        /* Packages Section */
+        .packages {
+            background: linear-gradient(160deg, var(--primary) 40%, var(--secondary) 100%);
+            padding: 150px 0;
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            margin-top: -80px;
+            margin-bottom: -80px;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .package-card {
+            background: var(--glass);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-20px);
+            box-shadow: var(--shadow);
+        }
+        
+        .package-card.popular {
+            border: 2px solid var(--accent);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .package-card.popular:hover {
+            transform: scale(1.05) translateY(-20px);
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent);
+            color: var(--text);
+            padding: 8px 40px;
+            font-weight: 700;
+            transform: rotate(45deg);
+            font-size: 0.9rem;
+        }
+        
+        .package-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .package-header h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .price span {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        
+        .package-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(58, 134, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .package-features li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .package-card .btn {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 50px 30px;
+            background: var(--glass);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.6s ease;
+            z-index: 2;
+        }
+        
+        .stat-item:hover:before {
+            height: 100%;
+        }
+        
+        .stat-value {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 150px 0 100px;
+            position: relative;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            text-align: center;
+        }
+        
+        .contact-info h2 {
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+        
+        .contact-info h2 span {
+            color: var(--accent);
+        }
+        
+        .contact-info p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .contact-item {
+            background: var(--glass);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            transition: var(--transition);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent);
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover .contact-icon {
+            transform: rotate(15deg) scale(1.1);
+            background: var(--accent);
+            color: var(--text);
+        }
+        
+        .contact-text h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-text p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .contact-action {
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 100px 0 40px;
+            position: relative;
+            border-top: 1px solid rgba(58, 134, 255, 0.1);
+            clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 18px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        .footer-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-links a:hover:after {
+            width: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 1.4rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-8px);
+            color: var(--text);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(58, 134, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 4rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+            
+            .hero h1:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-visual {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 150px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-card.popular {
+                transform: scale(1);
+            }
+            
+            .package-card.popular:hover {
+                transform: scale(1) translateY(-20px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                padding: 18px 35px;
+                font-size: 1rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                Motion<span>Craft</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>Transform Ideas Into <br><span>Captivating Video Stories</span></h1>
+                    <p>We craft premium video content that engages audiences, builds brands, and drives measurable results for forward-thinking businesses.</p>
+                    <a href="#packages" class="btn">
+                        <i class="fas fa-play-circle"></i> Explore Packages
+                    </a>
+                </div>
+                <div class="hero-visual fade-in">
+                    <div class="hero-card">
+                        <h3>Why MotionCraft?</h3>
+                        <p>We combine cinematic artistry with strategic marketing to create videos that resonate with audiences and deliver results.</p>
+                        
+                        <div class="card-grid">
+                            <div class="card-item">
+                                <i class="fas fa-film"></i>
+                                <h4>Cinematic Quality</h4>
+                                <p>Hollywood-grade production</p>
+                            </div>
+                            <div class="card-item">
+                                <i class="fas fa-bullseye"></i>
+                                <h4>Strategic Approach</h4>
+                                <p>Content that drives results</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Services</h2>
+            <div class="section-header fade-in">
+                <h2>Premium Video Solutions</h2>
+                <p>We offer unique video services designed to elevate your brand and captivate your audience.</p>
+            </div>
+            <div class="services-container">
+                <div class="service-category fade-in">
+                    <h3><i class="fas fa-crown"></i> Brand Elevation</h3>
+                    <ul class="service-list">
+                        <li>
+                            <div class="service-icon">
+                                <i class="fas fa-vr-cardboard"></i>
+                            </div>
+                            <div class="service-details">
+                                <h4>Immersive Brand Films</h4>
+                                <p>Cinematic storytelling that creates emotional connections with your audience.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="service-details">
+                                <h4>Animated Logo Stories</h4>
+                                <p>Bring your brand identity to life with captivating logo animations.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon">
+                                <i class="fas fa-microphone-alt"></i>
+                            </div>
+                            <div class="service-details">
+                                <h4>CEO Vision Videos</h4>
+                                <p>Showcase leadership and company vision through executive storytelling.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-category fade-in">
+                    <h3><i class="fas fa-rocket"></i> Growth Solutions</h3>
+                    <ul class="service-list">
+                        <li>
+                            <div class="service-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="service-details">
+                                <h4>Product Demo Series</h4>
+                                <p>Showcase your products with high-impact demonstration videos.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="service-details">
+                                <h4>Customer Journey Videos</h4>
+                                <p>Illustrate the customer experience from discovery to success.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="service-details">
+                                <h4>Data Visualization Films</h4>
+                                <p>Transform complex data into engaging visual stories.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Monthly Video Packages</h2>
+                <p>Choose the perfect plan for your business with our flexible monthly options.</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card fade-in">
+                    <div class="package-header">
+                        <h3>Starter</h3>
+                        <div class="price">$1,499<span>/month</span></div>
+                        <p>Perfect for small businesses</p>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 2 High-quality videos per month</li>
+                        <li><i class="fas fa-check"></i> Up to 60 seconds per video</li>
+                        <li><i class="fas fa-check"></i> 2 Revisions per video</li>
+                        <li><i class="fas fa-check"></i> 7-Day turnaround</li>
+                        <li><i class="fas fa-check"></i> Basic motion graphics</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="package-card popular fade-in">
+                    <div class="popular-tag">Most Popular</div>
+                    <div class="package-header">
+                        <h3>Professional</h3>
+                        <div class="price">$3,999<span>/month</span></div>
+                        <p>Ideal for growing businesses</p>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 4 Premium videos per month</li>
+                        <li><i class="fas fa-check"></i> Up to 90 seconds per video</li>
+                        <li><i class="fas fa-check"></i> 4 Revisions per video</li>
+                        <li><i class="fas fa-check"></i> 5-Day turnaround</li>
+                        <li><i class="fas fa-check"></i> Advanced motion graphics</li>
+                        <li><i class="fas fa-check"></i> 1 Social media cutdown</li>
+                        <li><i class="fas fa-check"></i> Monthly strategy session</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="package-card fade-in">
+                    <div class="package-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">$7,499<span>/month</span></div>
+                        <p>For established brands</p>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 8 Premium videos per month</li>
+                        <li><i class="fas fa-check"></i> Up to 120 seconds per video</li>
+                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
+                        <li><i class="fas fa-check"></i> 3-Day turnaround</li>
+                        <li><i class="fas fa-check"></i> Cinematic production quality</li>
+                        <li><i class="fas fa-check"></i> 3 Social media cutdowns</li>
+                        <li><i class="fas fa-check"></i> Bi-weekly strategy sessions</li>
+                        <li><i class="fas fa-check"></i> Dedicated project manager</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Client Retention</div>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <div class="stat-value">250+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <div class="stat-value">15M+</div>
+                    <div class="stat-label">Total Views</div>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Industry Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Contact</h2>
+            <div class="section-header fade-in">
+                <h2>Let's Create Together</h2>
+                <p>Ready to bring your vision to life? Get in touch with our creative team today.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Transform Your <span>Brand Story</span></h2>
+                    <p>We're passionate about helping businesses communicate their unique value through stunning video content. Our team is ready to bring your vision to life.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item fade-in">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Studio</h4>
+                                <p>123 Creative Lane, Media District, CA 90210</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-in">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Call Us</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-in">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Us</h4>
+                                <p>hello@motioncraft.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-action fade-in">
+                        <a href="mailto:hello@motioncraft.com" class="btn">
+                            <i class="fas fa-envelope"></i> Email Us Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>MotionCraft</h3>
+                    <p>We specialize in creating premium video content that helps businesses stand out and connect with their audience.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Brand Elevation</a></li>
+                        <li><a href="#">Growth Solutions</a></li>
+                        <li><a href="#">Monthly Packages</a></li>
+                        <li><a href="#">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Business Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday-Friday: 9am-6pm</li>
+                        <li>Saturday: 10am-4pm</li>
+                        <li>Sunday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 MotionCraft. All rights reserved. Designed with <i class="fas fa-heart" style="color: var(--accent);"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = "15px 0";
+                header.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.3)";
+            } else {
+                header.style.padding = "25px 0";
+                header.style.boxShadow = "none";
+            }
+        });
+        
+        // Button hover effect enhancement
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.4)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
+            });
+        });
+        
+        // Card hover effects
+        const cards = document.querySelectorAll('.card-item, .service-category, .package-card, .contact-item');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
