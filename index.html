@@ -100,6 +100,48 @@
             top: -10px;
         }
         
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--text);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -748,6 +790,250 @@
             transform: translateY(0);
         }
         
+        /* Portfolio Page Styles */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            background: var(--secondary);
+            color: var(--text-secondary);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent);
+            color: var(--text);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 16/9;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(10, 26, 42, 0.9));
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            bottom: 0;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* About Page Styles */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .about-text h2 span {
+            color: var(--accent);
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .about-stat {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+        }
+        
+        .about-stat h3 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .team-section {
+            padding: 120px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-member {
+            background: var(--glass);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(58, 134, 255, 0.1);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 3px solid var(--accent);
+        }
+        
+        .team-member h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .team-member p {
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .member-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .member-social a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Process Page Styles */
+        .process-steps {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .process-line {
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent);
+            z-index: 1;
+        }
+        
+        .process-step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            background: var(--glass);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            flex-grow: 1;
+            border: 1px solid rgba(58, 134, 255, 0.1);
+        }
+        
+        .step-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
         /* Responsive Design */
         @media (max-width: 1200px) {
             .hero h1 {
@@ -784,6 +1070,14 @@
             .services-container {
                 grid-template-columns: 1fr;
             }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 768px) {
@@ -818,6 +1112,35 @@
             .package-card.popular:hover {
                 transform: scale(1) translateY(-20px);
             }
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 26, 42, 0.95);
+                padding: 20px;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            nav.show {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .process-step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin: 0 auto;
+            }
         }
         
         @media (max-width: 576px) {
@@ -833,6 +1156,10 @@
             .card-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -840,13 +1167,23 @@
     <!-- Header -->
     <header id="header">
         <div class="container nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 Motion<span>Craft</span>
             </a>
+            <nav id="main-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about.html">About</a>
+                <a href="process.html">Process</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Home Page -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -1105,6 +1442,256 @@
         </div>
     </section>
 
+    <!-- Portfolio Page -->
+    <section class="section" id="portfolio-page" style="display: none;">
+        <div class="container">
+            <h2 class="section-title fade-in">Portfolio</h2>
+            <div class="section-header fade-in">
+                <h2>Our Featured Work</h2>
+                <p>Explore our collection of premium video projects crafted for clients across industries.</p>
+            </div>
+            
+            <div class="portfolio-filter fade-in">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="brand">Brand Films</button>
+                <button class="filter-btn" data-filter="commercial">Commercials</button>
+                <button class="filter-btn" data-filter="animation">Animation</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in" data-category="brand">
+                    <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Brand Film">
+                    <div class="portfolio-overlay">
+                        <h4>Nike Brand Story</h4>
+                        <p>Cinematic brand film showcasing innovation</p>
+                        <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="commercial">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80" alt="Commercial">
+                    <div class="portfolio-overlay">
+                        <h4>Apple Product Launch</h4>
+                        <p>60-second commercial for new product line</p>
+                        <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="animation">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Animation">
+                    <div class="portfolio-overlay">
+                        <h4>3D Product Animation</h4>
+                        <p>Animated explainer for tech startup</p>
+                        <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="social">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Social Media">
+                    <div class="portfolio-overlay">
+                        <h4>Instagram Ad Series</h4>
+                        <p>15-second social media campaign</p>
+                        <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="brand">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Brand Film">
+                    <div class="portfolio-overlay">
+                        <h4>Corporate Brand Film</h4>
+                        <p>Company culture and values showcase</p>
+                        <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="commercial">
+                    <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Commercial">
+                    <div class="portfolio-overlay">
+                        <h4>Automotive Commercial</h4>
+                        <p>30-second TV spot for luxury car brand</p>
+                        <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section class="about-hero" id="about-page" style="display: none;">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>We Are <span>MotionCraft</span></h2>
+                    <p>Founded in 2015, MotionCraft has grown from a small creative studio to a leading video production agency serving clients worldwide. Our team of filmmakers, animators, and strategists are united by a passion for visual storytelling.</p>
+                    <p>We believe in the power of video to transform businesses and create meaningful connections with audiences. Every project we undertake is approached with creativity, technical excellence, and strategic thinking.</p>
+                    
+                    <div class="about-stats">
+                        <div class="about-stat fade-in">
+                            <h3>8+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="about-stat fade-in">
+                            <h3>50+</h3>
+                            <p>Industry Awards</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual fade-in">
+                    <div class="hero-card">
+                        <h3>Our Values</h3>
+                        <p>The principles that guide everything we create</p>
+                        
+                        <div class="card-grid">
+                            <div class="card-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <h4>Innovation</h4>
+                                <p>Pushing creative boundaries</p>
+                            </div>
+                            <div class="card-item">
+                                <i class="fas fa-heart"></i>
+                                <h4>Passion</h4>
+                                <p>Love what we do</p>
+                            </div>
+                            <div class="card-item">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Results</h4>
+                                <p>Driving measurable impact</p>
+                            </div>
+                            <div class="card-item">
+                                <i class="fas fa-users"></i>
+                                <h4>Collaboration</h4>
+                                <p>Partners in success</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="team-section" style="display: none;">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Meet The Team</h2>
+                <p>The creative minds behind MotionCraft's success</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" class="member-image">
+                    <h4>Alex Johnson</h4>
+                    <p>Founder & Creative Director</p>
+                    <p>15 years of filmmaking experience with a focus on brand storytelling</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="member-image">
+                    <h4>Sarah Chen</h4>
+                    <p>Head of Production</p>
+                    <p>Specializes in large-scale commercial productions and campaign strategy</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Michael Rodriguez" class="member-image">
+                    <h4>Michael Rodriguez</h4>
+                    <p>Lead Animator</p>
+                    <p>Brings concepts to life with stunning motion graphics and 3D animation</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Jessica Park" class="member-image">
+                    <h4>Jessica Park</h4>
+                    <p>Client Director</p>
+                    <p>Ensures every project exceeds expectations and delivers results</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Page -->
+    <section class="section" id="process-page" style="display: none;">
+        <div class="container">
+            <h2 class="section-title fade-in">Process</h2>
+            <div class="section-header fade-in">
+                <h2>Our Creative Workflow</h2>
+                <p>We follow a proven process to ensure every project is delivered on time and exceeds expectations</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-line"></div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discovery</h3>
+                        <p>We start by deeply understanding your brand, goals, and audience through workshops and research. This phase includes competitive analysis, audience profiling, and creative brief development.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Concept Development</h3>
+                        <p>Our creative team brainstorms concepts and develops a strategic approach. We present mood boards, style frames, and narrative approaches for your feedback and approval.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Pre-Production</h3>
+                        <p>Once the concept is approved, we move into scripting, storyboarding, casting, location scouting, and scheduling. Every detail is planned to ensure smooth production.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Production</h3>
+                        <p>Our experienced crew brings the vision to life through filming, animation, or motion graphics creation. We maintain open communication throughout the production phase.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Post-Production</h3>
+                        <p>Editing, color grading, sound design, and visual effects are applied to create the final product. We provide regular updates and incorporate your feedback.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Delivery & Optimization</h3>
+                        <p>We deliver the final assets in all required formats and provide recommendations for distribution and performance optimization across channels.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1123,9 +1710,10 @@
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="process.html">Process</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1133,10 +1721,10 @@
                 <div class="footer-col">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Brand Elevation</a></li>
-                        <li><a href="#">Growth Solutions</a></li>
-                        <li><a href="#">Monthly Packages</a></li>
-                        <li><a href="#">Custom Solutions</a></li>
+                        <li><a href="#services">Brand Elevation</a></li>
+                        <li><a href="#services">Growth Solutions</a></li>
+                        <li><a href="#packages">Monthly Packages</a></li>
+                        <li><a href="#contact">Custom Solutions</a></li>
                     </ul>
                 </div>
                 
@@ -1202,7 +1790,7 @@
         });
         
         // Card hover effects
-        const cards = document.querySelectorAll('.card-item, .service-category, .package-card, .contact-item');
+        const cards = document.querySelectorAll('.card-item, .service-category, .package-card, .contact-item, .team-member');
         cards.forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-15px)';
@@ -1210,6 +1798,81 @@
             
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('show');
+        });
+        
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        if (filterButtons.length > 0) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+        
+        // Page navigation
+        const navLinks = document.querySelectorAll('nav a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                navLinks.forEach(link => link.classList.remove('active'));
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                const targetPage = this.getAttribute('href');
+                
+                // Hide all pages
+                document.querySelectorAll('#home, #services, #packages, #contact, #portfolio-page, #about-page, #process-page').forEach(page => {
+                    page.style.display = 'none';
+                });
+                
+                // Show target page
+                if(targetPage === 'index.html') {
+                    document.getElementById('home').style.display = 'block';
+                    document.getElementById('services').style.display = 'block';
+                    document.getElementById('packages').style.display = 'block';
+                    document.getElementById('contact').style.display = 'block';
+                } else if(targetPage === 'portfolio.html') {
+                    document.getElementById('portfolio-page').style.display = 'block';
+                } else if(targetPage === 'about.html') {
+                    document.getElementById('about-page').style.display = 'block';
+                    document.querySelector('.team-section').style.display = 'block';
+                } else if(targetPage === 'process.html') {
+                    document.getElementById('process-page').style.display = 'block';
+                } else {
+                    // For anchor links
+                    const targetElement = document.querySelector(targetPage);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             });
         });
     </script>
