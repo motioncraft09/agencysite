@@ -3,957 +3,1064 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MotionCraft | AI-Powered Ad Intelligence</title>
+    <title>MotionCraft - Data-Driven Ad Intelligence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #0ea5e9;
-            --accent-2: #10b981;
-            --dark: #0f172a;
-            --darker: #020617;
-            --light: #f8fafc;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-            --glass: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.18);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --primary: #0A142F;
+            --primary-dark: #050A1C;
+            --primary-light: #132043;
+            --secondary: #2D5BFF;
+            --accent: #00D8FF;
+            --accent-alt: #FF6B35;
+            --text: #FFFFFF;
+            --text-muted: #A0AEC0;
+            --success: #28a745;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+            --card-bg: rgba(19, 32, 67, 0.6);
+            --glass-bg: rgba(19, 32, 67, 0.4);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--darker);
-            color: var(--light);
+            color: var(--text);
             line-height: 1.6;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 20%);
+            background-attachment: fixed;
         }
-
+        
         h1, h2, h3, h4, h5 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 700;
             line-height: 1.2;
         }
-
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
         .container {
-            width: 90%;
-            max-width: 1400px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 36px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
-        }
-
-        .btn:hover::before {
-            opacity: 1;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-        }
-
-        .btn-whatsapp:hover {
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
-        }
-
-        .glass {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Header Styles */
+        
+        /* Header & Navigation */
         header {
-            position: fixed;
+            background-color: rgba(10, 20, 47, 0.9);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
-            padding: 20px 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(45, 91, 255, 0.1);
         }
-
+        
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
-            border-radius: 20px;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 18px 0;
         }
-
+        
         .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent);
             display: flex;
             align-items: center;
-            text-decoration: none;
+            gap: 8px;
         }
-
+        
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient);
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            background: var(--secondary);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px;
-        }
-
-        .logo-icon i {
-            font-size: 1.5rem;
             color: white;
         }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-        }
-
+        
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 32px;
         }
-
-        .nav-links li {
-            margin: 0 15px;
-        }
-
+        
         .nav-links a {
-            text-decoration: none;
-            color: var(--light);
             font-weight: 500;
             transition: var(--transition);
             position: relative;
-            padding: 8px 0;
+            padding: 6px 0;
+            color: var(--text-muted);
         }
-
-        .nav-links a::after {
+        
+        .nav-links a:after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent);
+            background-color: var(--accent);
             transition: var(--transition);
         }
-
-        .nav-links a:hover::after {
+        
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        
+        .nav-links a:hover:after {
             width: 100%;
         }
-
+        
         .nav-cta {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
         }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--light);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: flex;
+        
+        .btn {
+            display: inline-flex;
             align-items: center;
-            gap: 60px;
-        }
-
-        .hero-text {
-            flex: 1;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(14, 165, 233, 0.15);
-            color: var(--accent);
-            border-radius: 50px;
-            font-size: 0.9rem;
+            gap: 8px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #1A48D6 100%);
+            color: white;
+            border-radius: var(--border-radius);
             font-weight: 600;
-            margin-bottom: 20px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(14, 165, 233, 0.2);
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-text h1 span {
-            background: linear-gradient(to right, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            color: #cbd5e1;
-            max-width: 600px;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 5px;
-        }
-
-        .stat-item p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-            perspective: 1000px;
-        }
-
-        .hero-image-inner {
-            position: relative;
-            transform: rotateY(-10deg) rotateX(5deg);
             transition: var(--transition);
-            transform-style: preserve-3d;
-        }
-
-        .hero-image:hover .hero-image-inner {
-            transform: rotateY(0) rotateX(0);
-        }
-
-        .dashboard-img {
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-        }
-
-        .floating-element {
-            position: absolute;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            top: -30px;
-            left: -30px;
-            width: 200px;
-            background: rgba(99, 102, 241, 0.15);
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            bottom: -20px;
-            right: -30px;
-            width: 180px;
-            background: rgba(139, 92, 246, 0.15);
-            animation-delay: 1s;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 100px;
-            left: -40px;
-            width: 150px;
-            background: rgba(14, 165, 233, 0.15);
-            animation-delay: 2s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Services Section */
-        .services {
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 80px;
-        }
-
-        .section-header h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-header p {
-            color: #94a3b8;
-            font-size: 1.2rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            padding: 40px;
-            border-radius: 24px;
-            transition: var(--transition);
+            border: none;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
-            z-index: 1;
         }
-
-        .service-card::before {
+        
+        .btn:before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(15, 23, 42, 0.4));
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
         }
-
-        .service-card:hover {
-            transform: translateY(-15px);
+        
+        .btn:hover:before {
+            left: 100%;
         }
-
-        .service-card:hover::before {
-            opacity: 1;
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(45, 91, 255, 0.3);
         }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(14, 165, 233, 0.1);
-            border-radius: 18px;
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent-alt) 0%, #E55A2B 100%);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+        
+        .btn-whatsapp:hover {
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            background: var(--primary-light);
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: var(--accent);
+            cursor: pointer;
+            color: var(--text);
         }
-
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .service-card p {
-            color: #cbd5e1;
-            margin-bottom: 25px;
-        }
-
-        .service-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .service-link i {
-            margin-left: 8px;
-            transition: var(--transition);
-        }
-
-        .service-link:hover {
-            color: var(--primary);
-        }
-
-        .service-link:hover i {
-            transform: translateX(5px);
-        }
-
-        /* Process Section */
-        .process {
+        
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 100px;
             position: relative;
+            overflow: hidden;
         }
-
-        .process-container {
+        
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .hero-buttons {
             display: flex;
-            flex-direction: column;
-            gap: 60px;
-            position: relative;
+            gap: 16px;
+            flex-wrap: wrap;
         }
-
-        .process-container::before {
-            content: '';
+        
+        .hero-image {
             position: absolute;
-            top: 0;
-            left: 50px;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+            z-index: 1;
+            opacity: 0.8;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            opacity: 0.1;
+            filter: blur(40px);
             z-index: 0;
         }
-
-        .process-step {
-            display: flex;
-            gap: 40px;
-            position: relative;
-            z-index: 1;
+        
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -200px;
         }
-
-        .step-number {
-            min-width: 100px;
-            height: 100px;
-            background: var(--gradient);
+        
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            left: -150px;
+            background: linear-gradient(135deg, var(--accent-alt) 0%, #FF42E6 100%);
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background-color: var(--primary-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            border: 1px solid rgba(45, 91, 255, 0.1);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+            border-color: rgba(45, 91, 255, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+        
+        /* ROI Graph Section */
+        .roi-section {
+            padding: 100px 0;
+            background: var(--primary-dark);
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .graph-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(45, 91, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .graph-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .graph-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .graph-filter {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background: var(--primary-light);
+            border: 1px solid rgba(45, 91, 255, 0.2);
+            border-radius: 30px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+        
+        /* Video Showcase Section */
+        .video-showcase {
+            padding: 100px 0;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: var(--card-bg);
+            border: 1px solid rgba(45, 91, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+            border-color: rgba(45, 91, 255, 0.3);
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
         }
-
-        .step-content {
-            flex: 1;
-            padding: 30px;
-            border-radius: 24px;
+        
+        .video-play-btn:hover {
+            background: var(--secondary);
+            transform: translate(-50%, -50%) scale(1.1);
         }
-
-        .step-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+        
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
         }
-
-        .step-content p {
-            color: #cbd5e1;
+        
+        .video-modal iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+            border-radius: var(--border-radius);
         }
-
-        /* Pricing Section */
-        .pricing {
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
             position: relative;
         }
-
+        
+        .process-steps:before {
+            content: '';
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            z-index: 0;
+        }
+        
+        .step {
+            flex: 0 0 calc(25% - 30px);
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            background: var(--card-bg);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(45, 91, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(45, 91, 255, 0.3);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(45, 91, 255, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            transition: var(--transition);
+        }
+        
+        .step:hover .step-icon {
+            background: var(--secondary);
+            color: white;
+            transform: rotate(10deg);
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--text);
+        }
+        
+        .step p {
+            color: var(--text-muted);
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            background: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
         .pricing-header {
             text-align: center;
             margin-bottom: 60px;
         }
-
-        .pricing-tabs {
+        
+        .currency-toggle {
             display: inline-flex;
-            background: rgba(15, 23, 42, 0.5);
+            background: var(--primary-light);
+            padding: 6px;
             border-radius: 50px;
-            padding: 8px;
-            margin: 30px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            border: 1px solid rgba(45, 91, 255, 0.1);
         }
-
-        .tab-btn {
-            padding: 12px 30px;
-            background: transparent;
-            color: #94a3b8;
+        
+        .currency-btn {
+            padding: 10px 20px;
             border-radius: 50px;
-            cursor: pointer;
             font-weight: 600;
+            cursor: pointer;
             transition: var(--transition);
+            color: var(--text-muted);
         }
-
-        .tab-btn.active {
-            background: var(--gradient);
+        
+        .currency-btn.active {
+            background: var(--secondary);
             color: white;
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
         }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        
+        .pricing-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 30px;
         }
-
+        
         .pricing-card {
-            padding: 40px;
-            border-radius: 24px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(45, 91, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
-
+        
         .pricing-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(45, 91, 255, 0.3);
         }
-
-        .popular-tag {
+        
+        .pricing-card.featured {
+            border: 2px solid var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .featured-badge {
             position: absolute;
             top: 20px;
-            right: -30px;
-            background: var(--accent);
-            color: var(--dark);
-            padding: 8px 40px;
-            font-weight: 700;
+            right: -34px;
+            background: var(--accent-alt);
+            color: white;
+            padding: 6px 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
             transform: rotate(45deg);
-            font-size: 0.8rem;
-        }
-
-        .pricing-name {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        .pricing-price {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-            background: linear-gradient(to right, var(--light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .pricing-price span {
-            font-size: 1rem;
-            color: #94a3b8;
-        }
-
-        .pricing-features {
-            margin: 30px 0;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list li {
-            padding: 12px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            color: #cbd5e1;
-        }
-
-        .feature-list li:last-child {
-            border-bottom: none;
-        }
-
-        .feature-list li i {
-            color: var(--accent);
-            margin-right: 10px;
-        }
-
-        .international-pricing {
+            width: 150px;
             text-align: center;
-            margin-top: 50px;
-            padding: 25px;
-            border-radius: 24px;
-            max-width: 800px;
-            margin: 50px auto 0;
         }
-
-        .international-pricing p {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .international-pricing .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* International Pricing Cards */
-        .international-cards {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        /* WhatsApp Order Section */
-        .whatsapp-order {
+        
+        .pricing-header-card {
+            padding: 40px 30px;
             text-align: center;
-            padding: 80px 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-light) 100%);
+            color: white;
             position: relative;
-            overflow: hidden;
         }
-
-        .whatsapp-order::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(15, 23, 42, 0.8));
-            z-index: -1;
+        
+        .pricing-header-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
-
-        .whatsapp-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .whatsapp-icon {
-            font-size: 4rem;
-            color: #25D366;
-            margin-bottom: 20px;
-        }
-
-        .whatsapp-content h2 {
+        
+        .price {
             font-size: 2.8rem;
-            margin-bottom: 20px;
+            font-weight: 800;
+            margin: 15px 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
         }
-
-        .whatsapp-content p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-top: 10px;
+            margin-right: 4px;
+        }
+        
+        .pricing-body {
+            padding: 30px;
+        }
+        
+        .features {
+            list-style: none;
             margin-bottom: 30px;
         }
-
+        
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features i {
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+        
+        .pricing-note {
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--glass-bg);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            border: 1px solid rgba(45, 91, 255, 0.1);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+            border-color: rgba(45, 91, 255, 0.3);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            position: relative;
+            color: var(--text);
+        }
+        
+        .testimonial-text:before {
+            content: """;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: -30px;
+            left: -15px;
+            font-family: sans-serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+        
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
         /* CTA Section */
         .cta {
+            padding: 100px 0;
             text-align: center;
-            padding: 120px 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
             position: relative;
             overflow: hidden;
         }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(15, 23, 42, 0.8));
-            z-index: -1;
-        }
-
+        
         .cta h2 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--text);
         }
-
+        
         .cta p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
             max-width: 700px;
             margin: 0 auto 40px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
         }
-
+        
         /* Footer */
         footer {
-            padding: 100px 0 40px;
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 80px 0 30px;
             position: relative;
         }
-
-        .footer-grid {
+        
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 60px;
         }
-
-        .footer-col h3 {
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
             font-size: 1.5rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
+            color: var(--text);
         }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .footer-about p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            transition: var(--transition);
-            font-size: 1.2rem;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-        }
-
+        
         .footer-links {
             list-style: none;
         }
-
+        
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
-
+        
         .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
+            color: var(--text-muted);
             transition: var(--transition);
-            display: flex;
-            align-items: center;
+            display: inline-block;
         }
-
-        .footer-links a i {
-            margin-right: 10px;
-            color: var(--accent);
-            transition: var(--transition);
-        }
-
+        
         .footer-links a:hover {
-            color: var(--light);
-            padding-left: 5px;
-        }
-
-        .footer-links a:hover i {
+            color: var(--accent);
             transform: translateX(5px);
         }
-
-        .copyright {
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
             text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #94a3b8;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
+            color: var(--text-muted);
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
-        /* Responsive */
+        
+        /* Responsive Styles */
         @media (max-width: 1100px) {
-            .hero-content {
-                flex-direction: column;
+            .process-steps:before {
+                display: none;
             }
             
-            .hero-text {
-                text-align: center;
-                margin-bottom: 60px;
+            .step {
+                flex: 0 0 calc(50% - 30px);
+                margin-bottom: 50px;
             }
             
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
+            .hero h1 {
+                font-size: 3rem;
             }
             
-            .hero-btns {
-                justify-content: center;
+            .hero-image {
+                opacity: 0.3;
             }
             
-            .hero-stats {
-                justify-content: center;
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
-
+        
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+            .nav-links, .nav-cta {
+                display: none;
             }
             
-            .nav-links {
-                position: fixed;
-                top: 90px;
-                left: 0;
-                width: 100%;
-                background: var(--dark);
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
                 flex-direction: column;
-                padding: 20px;
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: var(--transition);
+                align-items: flex-start;
             }
             
-            .nav-links.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-                text-align: center;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-            
-            .section-header h2 {
+            .section-title h2 {
                 font-size: 2.2rem;
             }
             
-            .process-container::before {
-                left: 25px;
+            .step {
+                flex: 0 0 100%;
             }
             
-            .step-number {
-                min-width: 80px;
-                height: 80px;
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
                 font-size: 2rem;
             }
+            
+            .btn {
+                padding: 12px 24px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta h2 {
+                font-size: 2.2rem;
+            }
+            
+            .video-modal iframe {
+                width: 95%;
+                height: 50%;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <header>
         <div class="container">
-            <nav class="navbar glass">
+            <nav class="navbar">
                 <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="logo-text">MotionCraft</div>
+                    <div class="logo-icon">M</div>
+                    MotionCraft
                 </a>
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#process">Process</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Process</a></li>
                     <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#order">Order</a></li>
+                    <li><a href="#video-showcase">Showcase</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="nav-cta">
-                    <a href="#order" class="btn">Order Now</a>
-                    <div class="menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </div>
+                    <a href="#" class="btn-outline">Login</a>
+                    <a href="#pricing" class="btn">Get Started</a>
+                    <a href="https://wa.me/880XXXXXXXXX?text=Hello%20MotionCraft,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Free Call
+                    </a>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
                 </div>
             </nav>
         </div>
@@ -963,130 +1070,172 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text fade-in">
-                    <span class="hero-tag">AI-Powered Ad Intelligence</span>
-                    <h1>Transform Data Into <span>Winning Content</span></h1>
-                    <p>Bangladesh's premier AI-driven content lab analyzing winning ads to craft sales-driven content that propels your business growth worldwide.</p>
-                    <div class="hero-btns">
-                        <a href="#order" class="btn">Order Now</a>
-                        <a href="#services" class="btn btn-outline">Our Services</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <h3>97%</h3>
-                            <p>Client Success Rate</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>3.2M</h3>
-                            <p>Ads Analyzed</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>42+</h3>
-                            <p>Countries Served</p>
-                        </div>
-                    </div>
+                <h1 class="animate">AI-Powered Ad Intelligence for <span style="display: block;">Maximum ROI</span></h1>
+                <p class="animate delay-1">MotionCraft leverages advanced AI to analyze winning ads and create data-driven content that boosts your sales performance. Based in Bangladesh, serving clients worldwide.</p>
+                <div class="hero-buttons animate delay-2">
+                    <a href="#pricing" class="btn">View Our Packages</a>
+                    <a href="https://wa.me/880XXXXXXXXX?text=Hello%20MotionCraft,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Free Call
+                    </a>
                 </div>
-                <div class="hero-image fade-in delay-1">
-                    <div class="hero-image-inner">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="AI Analytics Dashboard" class="dashboard-img">
-                        <div class="floating-element">
-                            <i class="fas fa-chart-line fa-2x"></i>
-                            <div style="margin-left: 15px;">
-                                <strong>+42% ROI</strong>
-                                <p>Last Campaign</p>
-                            </div>
-                        </div>
-                        <div class="floating-element">
-                            <i class="fas fa-bolt fa-2x"></i>
-                            <div style="margin-left: 15px;">
-                                <strong>AI Insights</strong>
-                                <p>Real-time Data</p>
-                            </div>
-                        </div>
-                        <div class="floating-element">
-                            <i class="fas fa-trophy fa-2x"></i>
-                            <div style="margin-left: 15px;">
-                                <strong>Top Performers</strong>
-                                <p>Identified</p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Clients Worldwide</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Ads Analyzed Daily</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">45%</div>
+                    <div class="stat-label">Avg. ROI Increase</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- ROI Graph Section -->
+    <section class="roi-section">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Intelligent Solutions</h2>
-                <p>Advanced AI services designed to transform your advertising strategy</p>
+            <div class="section-title">
+                <h2>Data-Driven Results</h2>
+                <p>See how our AI-powered approach delivers measurable ROI</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card glass fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
+            
+            <div class="graph-container">
+                <div class="graph-header">
+                    <h3 class="graph-title">ROI Growth Comparison</h3>
+                    <div class="graph-filter">
+                        <button class="filter-btn active">6M</button>
+                        <button class="filter-btn">1Y</button>
+                        <button class="filter-btn">2Y</button>
                     </div>
-                    <h3>AI Ad Intelligence</h3>
-                    <p>Our proprietary AI analyzes thousands of winning ads across platforms to identify patterns and opportunities that drive conversions.</p>
-                    <a href="#" class="service-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card glass fade-in delay-1">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-network"></i>
+                <div class="chart-container">
+                    <canvas id="roiChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="graph-container">
+                <div class="graph-header">
+                    <h3 class="graph-title">Sales Growth Projection</h3>
+                    <div class="graph-filter">
+                        <button class="filter-btn active">6M</button>
+                        <button class="filter-btn">1Y</button>
+                        <button class="filter-btn">2Y</button>
                     </div>
-                    <h3>Data-Driven Insights</h3>
-                    <p>Transform raw data into actionable strategies that drive conversions and maximize ROI with our advanced analytics platform.</p>
-                    <a href="#" class="service-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card glass fade-in delay-2">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
+                <div class="chart-container">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase Section -->
+    <section id="video-showcase" class="video-showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Work Showcase</h2>
+                <p>See examples of our successful ad campaigns</p>
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-item">
+                    <img src="https://drive.google.com/thumbnail?id=1ABC123DEF456" alt="Ad Campaign 1" class="video-thumbnail">
+                    <div class="video-play-btn" data-video="https://drive.google.com/file/d/1ABC123DEF456/preview">
+                        <i class="fas fa-play"></i>
                     </div>
-                    <h3>business Content</h3>
-                    <p>Our expert team crafts high-converting content based on AI-generated insights and current market trends for maximum impact.</p>
-                    <a href="#" class="service-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
+                
+                <div class="video-item">
+                    <img src="https://drive.google.com/thumbnail?id=2GHI789JKL012" alt="Ad Campaign 2" class="video-thumbnail">
+                    <div class="video-play-btn" data-video="https://drive.google.com/file/d/2GHI789JKL012/preview">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <img src="https://drive.google.com/thumbnail?id=3MNO345PQR678" alt="Ad Campaign 3" class="video-thumbnail">
+                    <div class="video-play-btn" data-video="https://drive.google.com/file/d/3MNO345PQR678/preview">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <img src="https://drive.google.com/thumbnail?id=4STU901VWX234" alt="Ad Campaign 4" class="video-thumbnail">
+                    <div class="video-play-btn" data-video="https://drive.google.com/file/d/4STU901VWX234/preview">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="video-modal" id="videoModal">
+                <div class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </div>
+                <iframe id="videoFrame" src="" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section id="process" class="process">
+    <section class="process">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Our Winning Process</h2>
-                <p>How our AI-powered system delivers exceptional results</p>
+            <div class="section-title">
+                <h2>Our AI-Powered Process</h2>
+                <p>How we transform data into winning content strategies</p>
             </div>
-            <div class="process-container">
-                <div class="process-step fade-in">
+            
+            <div class="process-steps">
+                <div class="step">
                     <div class="step-number">1</div>
-                    <div class="step-content glass">
-                        <h3>AI Analysis</h3>
-                        <p>Our AI agent scans and compares thousands of winning ads across platforms to identify successful patterns and strategies.</p>
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
+                    <h3>AI Analysis</h3>
+                    <p>Our proprietary AI agent compares and analyzes winning ads across platforms</p>
                 </div>
-                <div class="process-step fade-in delay-1">
+                
+                <div class="step">
                     <div class="step-number">2</div>
-                    <div class="step-content glass">
-                        <h3>Intelligence Report</h3>
-                        <p>Detailed report highlighting winning patterns, competitor strategies, and market opportunities sent to our analysis team.</p>
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
+                    <h3>Data Processing</h3>
+                    <p>We identify patterns and successful elements in top-performing advertisements</p>
                 </div>
-                <div class="process-step fade-in delay-2">
+                
+                <div class="step">
                     <div class="step-number">3</div>
-                    <div class="step-content glass">
-                        <h3>Content Creation</h3>
-                        <p>Experts craft sales-driven content based on data insights, tailored to your brand and target audience for maximum impact.</p>
+                    <div class="step-icon">
+                        <i class="fas fa-file-alt"></i>
                     </div>
+                    <h3>Detailed Reporting</h3>
+                    <p>Comprehensive reports are generated and sent to our analysis team</p>
                 </div>
-                <div class="process-step fade-in delay-3">
+                
+                <div class="step">
                     <div class="step-number">4</div>
-                    <div class="step-content glass">
-                        <h3>Performance Tracking</h3>
-                        <p>Continuous optimization based on real-time performance data to ensure your content remains effective and competitive.</p>
+                    <div class="step-icon">
+                        <i class="fas fa-paint-brush"></i>
                     </div>
+                    <h3>Content Creation</h3>
+                    <p>Our team creates sales-driven content based on data insights</p>
                 </div>
             </div>
         </div>
@@ -1095,264 +1244,503 @@
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <div class="pricing-header fade-in">
-                <h2>Transparent Pricing</h2>
-                <p>Flexible packages for businesses of all sizes</p>
-                <div class="pricing-tabs glass">
-                    <div class="tab-btn active" data-tab="bdt">BDT Packages</div>
-                    <div class="tab-btn" data-tab="international">International</div>
+            <div class="pricing-header">
+                <div class="section-title">
+                    <h2>Transparent Pricing</h2>
+                    <p>Choose the package that fits your business needs</p>
+                </div>
+                
+                <div class="currency-toggle">
+                    <div class="currency-btn active">BDT</div>
+                    <div class="currency-btn">USD</div>
                 </div>
             </div>
             
-            <!-- BDT Pricing Cards -->
-            <div class="pricing-grid" id="bdt-pricing">
-                <div class="pricing-card glass fade-in">
-                    <div class="pricing-name">Essential</div>
-                    <div class="pricing-price">1500 <span>BDT</span></div>
-                    <p>Perfect for startups and small businesses</p>
-                    <div class="pricing-features">
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> Basic Ad Analysis</li>
-                            <li><i class="fas fa-check-circle"></i> 3 Content Pieces</li>
-                            <li><i class="fas fa-check-circle"></i> Weekly Reports</li>
-                            <li><i class="fas fa-check-circle"></i> Email Support</li>
-                        </ul>
+            <div class="pricing-options">
+                <div class="pricing-card">
+                    <div class="pricing-header-card">
+                        <h3>Basic</h3>
+                        <div class="price">৳1,500<span>/project</span></div>
                     </div>
-                    <a href="#order" class="btn">Order Now</a>
+                    <div class="pricing-body">
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 1-2 Ad Concepts</li>
+                            <li><i class="fas fa-check"></i> Basic AI Analysis</li>
+                            <li><i class="fas fa-check"></i> Standard Reporting</li>
+                            <li><i class="fas fa-check"></i> 1 Revision Round</li>
+                        </ul>
+                        <a href="#" class="btn" style="width: 100%;">Get Started</a>
+                    </div>
                 </div>
                 
-                <div class="pricing-card glass fade-in delay-1">
-                    <div class="popular-tag">POPULAR</div>
-                    <div class="pricing-name">Professional</div>
-                    <div class="pricing-price">3000 <span>BDT</span></div>
-                    <p>For growing businesses and agencies</p>
-                    <div class="pricing-features">
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> Advanced AI Analysis</li>
-                            <li><i class="fas fa-check-circle"></i> 10 Content Pieces</li>
-                            <li><i class="fas fa-check-circle"></i> Competitor Analysis</li>
-                            <li><i class="fas fa-check-circle"></i> Daily Reports</li>
-                            <li><i class="fas fa-check-circle"></i> Priority Support</li>
-                        </ul>
+                <div class="pricing-card">
+                    <div class="pricing-header-card">
+                        <h3>Mid Quality</h3>
+                        <div class="price">৳2,000<span>/project</span></div>
                     </div>
-                    <a href="#order" class="btn">Order Now</a>
+                    <div class="pricing-body">
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 3-4 Ad Concepts</li>
+                            <li><i class="fas fa-check"></i> Advanced AI Analysis</li>
+                            <li><i class="fas fa-check"></i> Detailed Reporting</li>
+                            <li><i class="fas fa-check"></i> 2 Revision Rounds</li>
+                            <li><i class="fas fa-check"></i> Basic Performance Tracking</li>
+                        </ul>
+                        <a href="#" class="btn" style="width: 100%;">Get Started</a>
+                    </div>
                 </div>
                 
-                <div class="pricing-card glass fade-in delay-2">
-                    <div class="pricing-name">Enterprise</div>
-                    <div class="pricing-price">4000 <span>BDT</span></div>
-                    <p>For established businesses</p>
-                    <div class="pricing-features">
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> Full AI Suite Access</li>
-                            <li><i class="fas fa-check-circle"></i> Unlimited Content</li>
-                            <li><i class="fas fa-check-circle"></i> Real-time Analytics</li>
-                            <li><i class="fas fa-check-circle"></i> Dedicated Account Manager</li>
-                            <li><i class="fas fa-check-circle"></i> 24/7 Premium Support</li>
-                        </ul>
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Popular</div>
+                    <div class="pricing-header-card">
+                        <h3>High Quality</h3>
+                        <div class="price">৳3,000<span>/project</span></div>
                     </div>
-                    <a href="#order" class="btn">Order Now</a>
+                    <div class="pricing-body">
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 5-6 Ad Concepts</li>
+                            <li><i class="fas fa-check"></i> Comprehensive AI Analysis</li>
+                            <li><i class="fas fa-check"></i> Premium Reporting</li>
+                            <li><i class="fas fa-check"></i> 3 Revision Rounds</li>
+                            <li><i class="fas fa-check"></i> Advanced Performance Tracking</li>
+                            <li><i class="fas fa-check"></i> Competitor Analysis</li>
+                        </ul>
+                        <a href="#" class="btn" style="width: 100%;">Get Started</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header-card">
+                        <h3>Rare Package</h3>
+                        <div class="price">৳4,000<span>/project</span></div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 7+ Ad Concepts</li>
+                            <li><i class="fas fa-check"></i> Full AI Analysis Suite</li>
+                            <li><i class="fas fa-check"></i> Executive Level Reporting</li>
+                            <li><i class="fas fa-check"></i> Unlimited Revisions</li>
+                            <li><i class="fas fa-check"></i> Full Performance Suite</li>
+                            <li><i class="fas fa-check"></i> Comprehensive Competitor Analysis</li>
+                            <li><i class="fas fa-check"></i> Monthly Strategy Consultation</li>
+                        </ul>
+                        <a href="#" class="btn" style="width: 100%;">Get Started</a>
+                    </div>
                 </div>
             </div>
             
-            <!-- International Pricing Cards -->
-            <div class="international-cards" id="international-pricing">
-                <div class="pricing-card glass fade-in">
-                    <div class="pricing-name">Starter</div>
-                    <div class="pricing-price">$149 <span>USD</span></div>
-                    <p>Perfect for new international clients</p>
-                    <div class="pricing-features">
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> Basic Ad Analysis</li>
-                            <li><i class="fas fa-check-circle"></i> 5 Content Pieces</li>
-                            <li><i class="fas fa-check-circle"></i> Weekly Reports</li>
-                            <li><i class="fas fa-check-circle"></i> Email Support</li>
-                        </ul>
+            <p class="pricing-note">International pricing starts from $149. Contact us for custom enterprise solutions.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Success stories from businesses we've helped grow</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"MotionCraft's AI-driven approach helped us increase our conversion rate by 45%. Their data-backed content strategy was a game changer for our e-commerce business."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">R</div>
+                        <div class="author-info">
+                            <h4>Rahim Ahmed</h4>
+                            <p>Dhaka, Bangladesh</p>
+                        </div>
                     </div>
-                    <a href="#order" class="btn">Order Now</a>
                 </div>
                 
-                <div class="pricing-card glass fade-in delay-1">
-                    <div class="popular-tag">POPULAR</div>
-                    <div class="pricing-name">Advanced</div>
-                    <div class="pricing-price">$299 <span>USD</span></div>
-                    <p>For growing international businesses</p>
-                    <div class="pricing-features">
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> Advanced AI Analysis</li>
-                            <li><i class="fas fa-check-circle"></i> 15 Content Pieces</li>
-                            <li><i class="fas fa-check-circle"></i> Competitor Analysis</li>
-                            <li><i class="fas fa-check-circle"></i> Daily Reports</li>
-                            <li><i class="fas fa-check-circle"></i> Priority Support</li>
-                        </ul>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The detailed reports and winning ad concepts provided by MotionCraft have significantly reduced our customer acquisition cost while improving ROI."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">S</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>London, UK</p>
+                        </div>
                     </div>
-                    <a href="#order" class="btn">Order Now</a>
                 </div>
                 
-                <div class="pricing-card glass fade-in delay-2">
-                    <div class="pricing-name">Premium</div>
-                    <div class="pricing-price">$499 <span>USD</span></div>
-                    <p>For established international businesses</p>
-                    <div class="pricing-features">
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> Full AI Suite Access</li>
-                            <li><i class="fas fa-check-circle"></i> Unlimited Content</li>
-                            <li><i class="fas fa-check-circle"></i> Real-time Analytics</li>
-                            <li><i class="fas fa-check-circle"></i> Dedicated Account Manager</li>
-                            <li><i class="fas fa-check-circle"></i> 24/7 Premium Support</li>
-                        </ul>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Working with a Bangladesh-based agency has been fantastic. The quality of work is exceptional, and the pricing is very reasonable compared to Western agencies."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">M</div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Singapore</p>
+                        </div>
                     </div>
-                    <a href="#order" class="btn">Order Now</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WhatsApp Order Section -->
-    <section id="order" class="whatsapp-order">
+    <!-- CTA Section -->
+    <section class="cta">
         <div class="container">
-            <div class="whatsapp-content glass fade-in">
-                <div class="whatsapp-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Place your order directly through WhatsApp and our team will contact you immediately to discuss your project requirements.</p>
-                <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20your%20services." class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
-                </a>
-            </div>
+            <h2>Ready to Transform Your Ad Performance?</h2>
+            <p>Get in touch with us today to discuss how our data-driven approach can help your business grow</p>
+            <a href="https://wa.me/880XXXXXXXXX?text=Hello%20MotionCraft,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Book Free Call
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-about">
+            <div class="footer-content">
+                <div class="footer-column">
                     <h3>MotionCraft</h3>
-                    <p>Bangladesh's premier AI-powered ad intelligence and content creation agency serving clients worldwide with data-driven solutions.</p>
+                    <p>Data-driven content and ad intelligence agency based in Bangladesh, serving clients worldwide.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/motioncraft.in"><i class="fab fa-facebook-f"></i></a>
-                    
-                        <a href="https://www.instagram.com/motioncraft_international"><i class="fab fa-instagram"></i></a>
-                     
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> AI Ad Intelligence</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Content Creation</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Competitor Research</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Performance Analytics</a></li>
+                        <li><a href="#">Ad Intelligence</a></li>
+                        <li><a href="#">Content Creation</a></li>
+                        <li><a href="#">AI Analysis</a></li>
+                        <li><a href="#">Performance Tracking</a></li>
+                        <li><a href="#">Competitor Analysis</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
+                <div class="footer-column">
+                    <h3>Company</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> tangail, Bangladesh</a></li>
-                        <li><a href="tel:+880123456789"><i class="fas fa-phone"></i> +8801322149482</a></li>
-                        <li><a href="mailto:info@motioncraft.com"><i class="fas fa-envelope"></i> direct.motioncraft@gmail.com</a></li>
-                        <li><a href="#"><i class="fas fa-globe"></i> www.motioncraft.xyz</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</li>
+                        <li><i class="fas fa-phone"></i> +880 XXXXXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@motioncraft.com</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2023 MotionCraft. All rights reserved. | Serving clients worldwide from Bangladesh</p>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MotionCraft. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
-        
-        // Pricing Tabs
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const bdtPricing = document.getElementById('bdt-pricing');
-        const intlPricing = document.getElementById('international-pricing');
-        
-        tabBtns.forEach(btn => {
+
+        // Currency toggle
+        const currencyBtns = document.querySelectorAll('.currency-btn');
+        currencyBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active tab
-                tabBtns.forEach(b => b.classList.remove('active'));
+                currencyBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
-                // Show/hide pricing sections
-                if (btn.dataset.tab === 'bdt') {
-                    bdtPricing.style.display = 'grid';
-                    intlPricing.style.display = 'none';
+                // Update prices based on currency
+                const prices = document.querySelectorAll('.price');
+                if(btn.textContent === 'USD') {
+                    prices[0].innerHTML = '$149<span>/project</span>';
+                    prices[1].innerHTML = '$199<span>/project</span>';
+                    prices[2].innerHTML = '$299<span>/project</span>';
+                    prices[3].innerHTML = '$399<span>/project</span>';
                 } else {
-                    bdtPricing.style.display = 'none';
-                    intlPricing.style.display = 'grid';
+                    prices[0].innerHTML = '৳1,500<span>/project</span>';
+                    prices[1].innerHTML = '৳2,000<span>/project</span>';
+                    prices[2].innerHTML = '৳3,000<span>/project</span>';
+                    prices[3].innerHTML = '৳4,000<span>/project</span>';
                 }
             });
         });
+
+        // Video modal functionality
+        const videoModal = document.getElementById('videoModal');
+        const videoFrame = document.getElementById('videoFrame');
+        const closeModal = document.getElementById('closeModal');
+        const playButtons = document.querySelectorAll('.video-play-btn');
         
+        playButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoUrl = button.getAttribute('data-video');
+                videoFrame.src = videoUrl;
+                videoModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            videoModal.style.display = 'none';
+            videoFrame.src = '';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside the iframe
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.style.display = 'none';
+                videoFrame.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Create gradient for charts
+        const createGradient = (ctx, color1, color2) => {
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, color1);
+            gradient.addColorStop(1, color2);
+            return gradient;
+        };
+
+        // ROI Chart
+        const roiCtx = document.getElementById('roiChart').getContext('2d');
+        const roiGradient1 = createGradient(roiCtx, 'rgba(0, 216, 255, 0.6)', 'rgba(0, 216, 255, 0.1)');
+        const roiGradient2 = createGradient(roiCtx, 'rgba(45, 91, 255, 0.6)', 'rgba(45, 91, 255, 0.1)');
+        
+        const roiChart = new Chart(roiCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [
+                    {
+                        label: 'With MotionCraft',
+                        data: [15, 22, 28, 35, 42, 49],
+                        borderColor: '#00D8FF',
+                        backgroundColor: roiGradient1,
+                        borderWidth: 4,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#00D8FF',
+                        pointBorderColor: '#0A142F',
+                        pointBorderWidth: 2,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    },
+                    {
+                        label: 'Industry Average',
+                        data: [12, 16, 19, 22, 25, 28],
+                        borderColor: '#2D5BFF',
+                        backgroundColor: roiGradient2,
+                        borderWidth: 3,
+                        borderDash: [5, 5],
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#2D5BFF',
+                        pointBorderColor: '#0A142F',
+                        pointBorderWidth: 2,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#A0AEC0',
+                            font: {
+                                size: 14,
+                                weight: '600'
+                            },
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(10, 20, 47, 0.9)',
+                        titleColor: '#00D8FF',
+                        bodyColor: '#FFFFFF',
+                        titleFont: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        padding: 15,
+                        cornerRadius: 12,
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: '#A0AEC0',
+                            callback: function(value) {
+                                return value + '%';
+                            },
+                            font: {
+                                size: 12,
+                                weight: '600'
+                            },
+                            padding: 10
+                        },
+                        border: {
+                            dash: [4, 4]
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: '#A0AEC0',
+                            font: {
+                                size: 12,
+                                weight: '600'
+                            },
+                            padding: 10
+                        },
+                        border: {
+                            dash: [4, 4]
+                        }
+                    }
+                }
+            }
+        });
+
+        // Sales Growth Chart
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        const salesGradient1 = createGradient(salesCtx, 'rgba(45, 91, 255, 0.8)', 'rgba(45, 91, 255, 0.2)');
+        const salesGradient2 = createGradient(salesCtx, 'rgba(0, 216, 255, 0.8)', 'rgba(0, 216, 255, 0.2)');
+        
+        const salesChart = new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [
+                    {
+                        label: '2022',
+                        data: [30, 45, 52, 60],
+                        backgroundColor: salesGradient1,
+                        borderColor: 'rgba(45, 91, 255, 1)',
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                    },
+                    {
+                        label: '2023 (Projected)',
+                        data: [45, 65, 80, 95],
+                        backgroundColor: salesGradient2,
+                        borderColor: 'rgba(0, 216, 255, 1)',
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#A0AEC0',
+                            font: {
+                                size: 14,
+                                weight: '600'
+                            },
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(10, 20, 47, 0.9)',
+                        titleColor: '#00D8FF',
+                        bodyColor: '#FFFFFF',
+                        titleFont: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        padding: 15,
+                        cornerRadius: 12,
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: '#A0AEC0',
+                            callback: function(value) {
+                                return value + '%';
+                            },
+                            font: {
+                                size: 12,
+                                weight: '600'
+                            },
+                            padding: 10
+                        },
+                        border: {
+                            dash: [4, 4]
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: '#A0AEC0',
+                            font: {
+                                size: 12,
+                                weight: '600'
+                            },
+                            padding: 10
+                        },
+                        border: {
+                            dash: [4, 4]
+                        }
+                    }
+                }
+            }
+        });
+
         // Animation on scroll
         const observerOptions = {
             root: null,
             rootMargin: '0px',
             threshold: 0.1
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('animate');
                 }
             });
         }, observerOptions);
-        
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+
+        document.querySelectorAll('.step, .pricing-card, .testimonial-card, .video-item').forEach(el => {
+            observer.observe(el);
         });
-        
-        // 3D tilt effect for hero image
-        const heroImage = document.querySelector('.hero-image-inner');
-        
-        heroImage.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            heroImage.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-        
-        heroImage.addEventListener('mouseleave', () => {
-            heroImage.style.transform = 'rotateY(-10deg) rotateX(5deg)';
-        });
-        
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Initialize with BDT pricing visible
-        bdtPricing.style.display = 'grid';
-        intlPricing.style.display = 'none';
     </script>
 </body>
 </html>
