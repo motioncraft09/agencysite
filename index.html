@@ -212,6 +212,38 @@
             color: var(--text);
         }
         
+        /* Header Right Side Content */
+        .header-right-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .header-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .header-contact span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .header-contact a {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        
+        .header-badge {
+            background: linear-gradient(135deg, var(--accent-alt) 0%, #E55A2B 100%);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
         /* Hero Section */
         .hero {
             padding: 140px 0 100px;
@@ -326,7 +358,7 @@
             color: var(--text-muted);
         }
         
-        /* ROI Graph Section */
+        /* ROI Graph Section - UPDATED */
         .roi-section {
             padding: 100px 0;
             background: var(--primary-dark);
@@ -351,13 +383,28 @@
             font-size: 1.2rem;
         }
         
+        .graph-comparison {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
         .graph-container {
             background: var(--card-bg);
             border-radius: var(--border-radius);
             padding: 30px;
-            margin-bottom: 50px;
             border: 1px solid rgba(45, 91, 255, 0.1);
             backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            flex: 2;
+        }
+        
+        .graph-sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         
         .graph-header {
@@ -365,6 +412,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
         
         .graph-title {
@@ -397,6 +445,92 @@
             position: relative;
             height: 400px;
             width: 100%;
+        }
+        
+        .graph-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-alt) 0%, #E55A2B 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .info-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            border: 1px solid rgba(45, 91, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+            border-color: rgba(45, 91, 255, 0.3);
+        }
+        
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card h3 i {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .info-card p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            color: var(--text-muted);
+        }
+        
+        .metric-value {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .metric-change {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .metric-change.positive {
+            color: #28a745;
+        }
+        
+        .metric-change.negative {
+            color: #dc3545;
         }
         
         /* Video Showcase Section */
@@ -842,7 +976,7 @@
         footer {
             background-color: var(--primary-dark);
             color: white;
-            padding: 80px 0 30px;
+            padding: 80px 极速加速器 30px;
             position: relative;
         }
         
@@ -871,6 +1005,7 @@
             color: var(--text-muted);
             transition: var(--transition);
             display: inline-block;
+            width: 极速加速器;
         }
         
         .footer-links a:hover {
@@ -996,6 +1131,14 @@
             .video-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .header-right-content {
+                display: none;
+            }
+            
+            .graph-comparison {
+                flex-direction: column;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1048,6 +1191,14 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
+            }
+            
+            .graph-badge {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 15px;
+                width: fit-content;
             }
         }
         
@@ -1133,6 +1284,17 @@
                     <li><a href="#video-showcase">Showcase</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                
+                <div class="header-right-content">
+                    <div class="header-contact">
+                        <span>Call us today</span>
+                        <a href="tel:+880XXXXXXXXX">+880 XXXXX-XXXXX</a>
+                    </div>
+                    <div class="header-badge">
+                        <i class="fas fa-bolt"></i> 24/7 Support
+                    </div>
+                </div>
+                
                 <div class="nav-cta">
                     <a href="#pricing" class="btn">Get Started</a>
                     <a href="https://wa.me/880XXXXXXXXX?text=Hello%20MotionCraft,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="btn btn-whatsapp" target="_blank">
@@ -1164,6 +1326,15 @@
             <a href="https://wa.me/880XXXXXXXXX?text=Hello%20MotionCraft,%20I'd%20like%20to%20book%20a%20free%20consultation%20call" class="btn btn-whatsapp" target="_blank" style="width: 100%; text-align: center;">
                 <i class="fab fa-whatsapp"></i> Free Call
             </a>
+        </div>
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="header-contact" style="align-items: center;">
+                <span>Call us today</span>
+                <a href="tel:+880XXXXXXXXX">+880 XXXXX-XXXXX</a>
+            </div>
+            <div class="header-badge" style="margin: 15px auto; text-align: center; width: fit-content;">
+                <i class="fas fa-bolt"></i> 24/7 Support
+            </div>
         </div>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -1210,39 +1381,78 @@
         </div>
     </section>
 
-    <!-- ROI Graph Section -->
+    <!-- ROI Graph Section - UPDATED -->
     <section class="roi-section">
         <div class="container">
             <div class="section-title">
-                <h2>Data-Driven Results</h2>
-                <p>See how our AI-powered approach delivers measurable ROI</p>
+                <h2>Performance Analytics</h2>
+                <p>Track your growth with our advanced ROI visualization tools</p>
             </div>
             
-            <div class="graph-container">
-                <div class="graph-header">
-                    <h3 class="graph-title">ROI Growth Comparison</h3>
-                    <div class="graph-filter">
-                        <button class="filter-btn active">6M</button>
-                        <button class="filter-btn">1Y</button>
-                        <button class="filter-btn">2Y</button>
+            <div class="graph-comparison">
+                <div class="graph-container">
+                    <div class="graph-header">
+                        <h3 class="graph-title">ROI Growth Comparison</h3>
+                        <div class="graph-filter">
+                            <button class="filter-btn active">6M</button>
+                            <button class="filter-btn">1Y</button>
+                            <button class="filter-btn">2Y</button>
+                        </div>
+                    </div>
+                    <div class="graph-badge">
+                        <i class="fas fa-chart-line"></i> +45% Growth
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="roiChart"></canvas>
                     </div>
                 </div>
-                <div class="chart-container">
-                    <canvas id="roiChart"></canvas>
-                </div>
-            </div>
-            
-            <div class="graph-container">
-                <div class="graph-header">
-                    <h3 class="graph-title">Sales Growth Projection</h3>
-                    <div class="graph-filter">
-                        <button class="filter-btn active">6M</button>
-                        <button class="filter-btn">1Y</button>
-                        <button class="filter-btn">2Y</button>
+                
+                <div class="graph-sidebar">
+                    <div class="info-card">
+                        <h3><i class="fas fa-chart-pie"></i> Performance Summary</h3>
+                        <p>Our AI-driven approach consistently delivers superior results compared to industry standards.</p>
+                        
+                        <div class="metric-item">
+                            <span class="metric-label">Avg. ROI Increase</span>
+                            <span class="metric-value">45%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Conversion Boost</span>
+                            <span class="metric-value">32%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Cost Reduction</span>
+                            <span class="metric-value">28%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Client Satisfaction</span>
+                            <span class="metric-value">98%</span>
+                        </div>
                     </div>
-                </div>
-                <div class="chart-container">
-                    <canvas id="salesChart"></canvas>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-trophy"></i> Key Achievements</h3>
+                        <p>Our data-driven strategies have helped clients achieve remarkable results.</p>
+                        
+                        <div class="metric-item">
+                            <span class="metric-label">ROI Growth</span>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i> 18.5%
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Ad Performance</span>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i> 27.3%
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Engagement Rate</span>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i> 22.1%
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1579,12 +1789,12 @@
                     prices[0].innerHTML = '$149<span>/project</span>';
                     prices[1].innerHTML = '$199<span>/project</span>';
                     prices[2].innerHTML = '$299<span>/project</span>';
-                    prices[3].innerHTML = '$399<span>/project</span>';
+                    prices[极速加速器].innerHTML = '$399<span>/project</span>';
                 } else {
                     prices[0].innerHTML = '৳1,500<span>/project</span>';
                     prices[1].innerHTML = '৳2,000<span>/project</span>';
                     prices[2].innerHTML = '৳3,000<span>/project</span>';
-                    prices[3].innerHTML = '৳4,000<span>/project</span>';
+                    prices[3].innerHTML = '৳4,000<span>/极速加速器</span>';
                 }
             });
         });
@@ -1604,7 +1814,7 @@
             });
         });
         
-        closeModal.addEventListener('click', () => {
+        closeModal.addEventListener('click', ()极速加速器 {
             videoModal.style.display = 'none';
             videoFrame.src = '';
             document.body.style.overflow = 'auto';
@@ -1627,33 +1837,36 @@
             return gradient;
         };
 
-        // ROI Chart
+        // ROI Chart - UPDATED with more modern design
         const roiCtx = document.getElementById('roiChart').getContext('2d');
         const roiGradient1 = createGradient(roiCtx, 'rgba(0, 216, 255, 0.6)', 'rgba(0, 216, 255, 0.1)');
-        const roiGradient2 = createGradient(roiCtx, 'rgba(45, 91, 255, 0.6)', 'rgba(45, 91, 255, 0.1)');
+        const roiGradient2 = create极速加速器(roiCtx, 'rgba(45, 91, 255, 0.6)', 'rgba(45, 91, 255, 0.1)');
         
         const roiChart = new Chart(roiCtx, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [
                     {
                         label: 'With MotionCraft',
-                        data: [15, 22, 28, 35, 42, 49],
+                        data: [15, 22, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91],
                         borderColor: '#00D8FF',
                         backgroundColor: roiGradient1,
                         borderWidth: 4,
                         fill: true,
                         tension: 0.4,
-                        pointBackgroundColor: '#00D8FF',
+                        pointBackgroundColor: '#00极速加速器',
                         pointBorderColor: '#0A142F',
                         pointBorderWidth: 2,
                         pointRadius: 6,
-                        pointHoverRadius: 8
+                        pointHoverRadius: 8,
+                        pointHoverBackgroundColor: '#00D8FF',
+                        pointHoverBorderColor: '#0A142F',
+                        point极速加速器Width: 3
                     },
                     {
                         label: 'Industry Average',
-                        data: [12, 16, 19, 22, 25, 28],
+                        data: [12, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46],
                         borderColor: '#2D5BFF',
                         backgroundColor: roiGradient2,
                         borderWidth: 3,
@@ -1664,7 +1877,10 @@
                         pointBorderColor: '#0A142F',
                         pointBorderWidth: 2,
                         pointRadius: 6,
-                        pointHoverRadius: 8
+                        pointHoverRadius: 8,
+                        pointHoverBackgroundColor: '#2D5BFF',
+                        pointHoverBorderColor: '#0A142F',
+                        pointHoverBorderWidth: 3
                     }
                 ]
             },
@@ -1673,13 +1889,16 @@
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
+                        position: 'top',
                         labels: {
                             color: '#A0AEC0',
                             font: {
                                 size: 14,
                                 weight: '600'
                             },
-                            padding: 20
+                            padding: 20,
+                            usePointStyle: true,
+                            pointStyle: 'circle'
                         }
                     },
                     tooltip: {
@@ -1695,7 +1914,12 @@
                         },
                         padding: 15,
                         cornerRadius: 12,
-                        displayColors: false
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.parsed.y}% ROI`;
+                            }
+                        }
                     }
                 },
                 scales: {
@@ -1721,7 +1945,7 @@
                     },
                     x: {
                         grid: {
-                            color: 'rgba(255, 255, 255, 0.05)'
+                            color: '极速加速器(255, 255, 255, 0.05)'
                         },
                         ticks: {
                             color: '#A0AEC0',
@@ -1734,107 +1958,16 @@
                         border: {
                             dash: [4, 4]
                         }
-                    }
-                }
-            }
-        });
-
-        // Sales Growth Chart
-        const salesCtx = document.getElementById('salesChart').getContext('2d');
-        const salesGradient1 = createGradient(salesCtx, 'rgba(45, 91, 255, 0.8)', 'rgba(45, 91, 255, 0.2)');
-        const salesGradient2 = createGradient(salesCtx, 'rgba(0, 216, 255, 0.8)', 'rgba(0, 216, 255, 0.2)');
-        
-        const salesChart = new Chart(salesCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-                datasets: [
-                    {
-                        label: '2022',
-                        data: [30, 45, 52, 60],
-                        backgroundColor: salesGradient1,
-                        borderColor: 'rgba(45, 91, 255, 1)',
-                        borderWidth: 2,
-                        borderRadius: 8,
-                        borderSkipped: false,
-                    },
-                    {
-                        label: '2023 (Projected)',
-                        data: [45, 65, 80, 95],
-                        backgroundColor: salesGradient2,
-                        borderColor: 'rgba(0, 216, 255, 1)',
-                        borderWidth: 2,
-                        borderRadius: 8,
-                        borderSkipped: false,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#A0AEC0',
-                            font: {
-                                size: 14,
-                                weight: '600'
-                            },
-                            padding: 20
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(10, 20, 47, 0.9)',
-                        titleColor: '#00D8FF',
-                        bodyColor: '#FFFFFF',
-                        titleFont: {
-                            size: 16,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 14
-                        },
-                        padding: 15,
-                        cornerRadius: 12,
-                        displayColors: false
                     }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.05)'
-                        },
-                        ticks: {
-                            color: '#A0AEC0',
-                            callback: function(value) {
-                                return value + '%';
-                            },
-                            font: {
-                                size: 12,
-                                weight: '600'
-                            },
-                            padding: 10
-                        },
-                        border: {
-                            dash: [4, 4]
-                        }
-                    },
-                    x: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.05)'
-                        },
-                        ticks: {
-                            color: '#A0AEC0',
-                            font: {
-                                size: 12,
-                                weight: '600'
-                            },
-                            padding: 10
-                        },
-                        border: {
-                            dash: [4, 4]
-                        }
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                },
+                animations: {
+                    tension: {
+                        duration: 1000,
+                        easing: 'linear'
                     }
                 }
             }
