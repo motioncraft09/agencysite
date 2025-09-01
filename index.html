@@ -875,6 +875,7 @@
             color: #cbd5e1;
             margin-bottom: 22px;
             flex-grow: 1;
+            font-size: 1rem;
         }
 
         .service-link {
@@ -1163,6 +1164,7 @@
             color: var(--light);
             padding-left: 5px;
             border-bottom: 1px dashed var(--accent);
+            border-bottom: 1px dashed var(--accent);
         }
 
         .feature-list li:last-child {
@@ -1354,6 +1356,7 @@
             color: white;
             transform: translateY(-4px);
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
         }
 
         .social-links a:hover::before {
@@ -1460,7 +1463,7 @@
             }
         }
 
-        /* Responsive */
+        /* Mobile Responsiveness Fixes */
         @media (max-width: 1100px) {
             .hero-content {
                 flex-direction: column;
@@ -2104,7 +2107,7 @@
                     <ul class="footer-links">
                         <li><a href="#services"><i class="fas fa-chevron-right"></i> AI Ad Intelligence</a></li>
                         <li><a href="#services"><i class="fas fa-chevron-right"></i> Content Creation</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Competitor Research</a></li>
+                        <li><a href#services"><i class="fas fa-chevron-right"></i> Competitor Research</a></li>
                         <li><a href="#services"><i class="fas fa-chevron-right"></i> Performance Analytics</a></li>
                     </ul>
                 </div>
@@ -2326,6 +2329,23 @@
         document.querySelectorAll('.service-card, .pricing-card, .process-step, .video-card').forEach(el => {
             el.classList.add('animate-on-scroll');
         });
+
+        // Fix for mobile header overlapping content
+        function adjustHeaderHeight() {
+            const header = document.getElementById('header');
+            const heroSection = document.querySelector('.hero');
+            
+            if (window.innerWidth < 768) {
+                const headerHeight = header.offsetHeight;
+                heroSection.style.paddingTop = `${headerHeight + 40}px`;
+            } else {
+                heroSection.style.paddingTop = '160px';
+            }
+        }
+
+        // Run on load and resize
+        window.addEventListener('load', adjustHeaderHeight);
+        window.addEventListener('resize', adjustHeaderHeight);
     </script>
 </body>
 </html>
