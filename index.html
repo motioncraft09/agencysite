@@ -890,6 +890,7 @@
         .service-link i {
             margin-left: 8px;
             transition: var(--transition);
+            font-size: 0.9rem;
         }
 
         .service-link:hover {
@@ -919,7 +920,7 @@
             position: relative;
             border-radius: 18px;
             overflow: hidden;
-            aspect-ratio: 1/1;
+            aspect-ratio: 16/9;
             transition: var(--transition);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             background: var(--dark);
@@ -1116,6 +1117,8 @@
             font-weight: 700;
             transform: rotate(45deg);
             font-size: 0.75rem;
+            width: 140px;
+            text-align: center;
         }
 
         .pricing-name {
@@ -1217,6 +1220,7 @@
             height: 100%;
             background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(15, 23, 42, 0.8));
             z-index: -1;
+            border-radius: 20px;
         }
 
         .whatsapp-content {
@@ -1481,6 +1485,24 @@
             }
         }
 
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .graph {
+                height: 350px;
+            }
+            
+            .floating-element {
+                display: none;
+            }
+        }
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -1497,6 +1519,7 @@
                 clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
                 transition: var(--transition);
                 z-index: 1000;
+                gap: 15px;
             }
             
             .nav-links.active {
@@ -1504,8 +1527,12 @@
             }
             
             .nav-links li {
-                margin: 12px 0;
+                margin: 0;
                 text-align: center;
+            }
+            
+            .hero {
+                padding: 130px 0 60px;
             }
             
             .hero-text h1 {
@@ -1553,6 +1580,98 @@
             .tab-btn {
                 width: 100%;
                 text-align: center;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stat-item {
+                text-align: center;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .popular-tag {
+                right: -35px;
+                font-size: 0.7rem;
+                padding: 6px 30px;
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header p {
+                font-size: 1rem;
+            }
+            
+            .graph {
+                height: 250px;
+            }
+            
+            .service-card, .pricing-card {
+                padding: 25px;
+            }
+            
+            .service-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .pricing-price {
+                font-size: 2.2rem;
+            }
+            
+            .whatsapp-content h2 {
+                font-size: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
             }
         }
 
@@ -1760,7 +1879,7 @@
             </div>
             <div class="video-container">
                 <div class="video-card glass fade-in">
-                    <iframe src="https://drive.google.com/file/d/1-V9LFeEPe27jv_JQwKTt1RzKRtPhLwjz/view?usp=drive_link" allow="autoplay" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="video-overlay">
                         <div class="play-btn">
                             <i class="fas fa-play"></i>
@@ -1768,7 +1887,7 @@
                     </div>
                 </div>
                 <div class="video-card glass fade-in delay-1">
-                    <iframe src="https://drive.google.com/file/d/1EXAMPLE_VIDEO_ID_2/preview" allow="autoplay" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="video-overlay">
                         <div class="play-btn">
                             <i class="fas fa-play"></i>
@@ -1776,7 +1895,7 @@
                     </div>
                 </div>
                 <div class="video-card glass fade-in delay-2">
-                    <iframe src="https://drive.google.com/file/d/1EXAMPLE_VIDEO_ID_3/preview" allow="autoplay" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="video-overlay">
                         <div class="play-btn">
                             <i class="fas fa-play"></i>
