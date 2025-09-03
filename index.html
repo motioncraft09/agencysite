@@ -1240,12 +1240,14 @@
         .whatsapp-content h2 {
             font-size: 2.5rem;
             margin-bottom: 18px;
+            line-height: 1.2;
         }
 
         .whatsapp-content p {
             font-size: 1.1rem;
             color: #cbd5e1;
             margin-bottom: 25px;
+            line-height: 1.6;
         }
 
         /* CTA Section */
@@ -1273,6 +1275,7 @@
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.2;
         }
 
         .cta p {
@@ -1280,6 +1283,7 @@
             color: #cbd5e1;
             max-width: 650px;
             margin: 0 auto 35px;
+            line-height: 1.6;
         }
 
         /* Footer */
@@ -1316,6 +1320,7 @@
             color: #94a3b8;
             margin-bottom: 22px;
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .social-links {
@@ -1860,6 +1865,42 @@
             
             .cta h2 {
                 font-size: 1.6rem;
+            }
+            
+            /* Additional mobile optimizations */
+            .hero-image {
+                margin-top: 20px;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+            
+            .step-content {
+                text-align: center;
+            }
+            
+            .process-container::before {
+                display: none;
+            }
+            
+            .graph-legend {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .footer-links li {
+                text-align: center;
+            }
+            
+            .footer-links a {
+                justify-content: center;
             }
         }
 
