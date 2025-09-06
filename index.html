@@ -210,6 +210,7 @@
         header.scrolled .navbar {
             border-radius: 14px;
             padding: 10px 20px;
+            background: rgba(15, 23, 42, 0.9);
         }
 
         .logo {
@@ -843,6 +844,7 @@
 
         .service-card:hover::before {
             opacity: 1;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(15, 23, 42, 0.5));
         }
 
         .service-icon {
@@ -939,41 +941,42 @@
             border-radius: 18px;
         }
 
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .video-placeholder {
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
+            background: linear-gradient(45deg, var(--primary-dark), var(--secondary));
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        .video-card:hover .video-overlay {
-            opacity: 1;
+        .video-placeholder i {
+            font-size: 3rem;
+            color: white;
+            z-index: 2;
         }
 
-        .play-btn {
-            width: 55px;
-            height: 55px;
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .video-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
             background: var(--neon);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            font-size: 1.4rem;
-            cursor: pointer;
-            transition: var(--transition);
-            transform: scale(0.8);
-        }
-
-        .video-card:hover .play-btn {
-            transform: scale(1);
+            opacity: 0.5;
+            animation: pulse 2s infinite;
         }
 
         /* Process Section */
@@ -1140,6 +1143,7 @@
         .pricing-price span {
             font-size: 0.95rem;
             color: #94a3b8;
+            font-weight: normal;
         }
 
         .pricing-features {
@@ -1354,6 +1358,7 @@
             opacity: 0;
             transition: var(--transition);
             z-index: -1;
+            border-radius: 10px;
         }
 
         .social-links a:hover {
@@ -2126,7 +2131,7 @@
         </div>
     </section>
 
-    <!-- Video Showcase Section -->
+    <!-- Video Showcase Section - FIXED -->
     <section id="video-showcase" class="video-showcase">
         <div class="container">
             <div class="section-header fade-in">
@@ -2135,28 +2140,13 @@
             </div>
             <div class="video-container">
                 <div class="video-card glass fade-in">
-                    <iframe src="https://youtu.be/ag4Yb8ZkNTw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="video-overlay">
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
+                    <iframe src="https://www.youtube.com/embed/ag4Yb8ZkNTw" title="MotionCraft Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-card glass fade-in delay-1">
-                    <iframe src="https://youtube.com/shorts/srwl0vJst40?feature=share" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="video-overlay">
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
+                    <iframe src="https://www.youtube.com/embed/srwl0vJst40" title="MotionCraft Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-card glass fade-in delay-2">
-                    <iframe src="https://youtube.com/shorts/vaxZ8F4YmnE?feature=share" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="video-overlay">
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
+                    <iframe src="https://www.youtube.com/embed/vaxZ8F4YmnE" title="MotionCraft Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
