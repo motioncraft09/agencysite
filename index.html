@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MotionCraft | AI-Powered Ad Intelligence</title>
+    <title>MotionCraft | AI-Powered Ad Intelligence Lab - Evolve Your Ads</title>
+    <meta name="description" content="MotionCraft: World's first AI-driven, human-powered Ad Intelligence Lab. We don't just create ads — we evolve them with data-driven insights and emotional intelligence.">
+    <meta name="keywords" content="AI advertising, ad intelligence, content creation, marketing analytics, digital advertising, ad evolution">
+    <meta name="author" content="MotionCraft">
+    <link rel="canonical" href="https://motioncraft.xyz">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://motioncraft.xyz">
+    <meta property="og:title" content="MotionCraft | AI-Powered Ad Intelligence Lab">
+    <meta property="og:description" content="We don't just create ads — we evolve them with AI-driven insights and human creativity.">
+    <meta property="og:image" content="https://motioncraft.xyz/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary: #6366f1;
@@ -16,21 +33,28 @@
             --accent-2: #10b981;
             --neon: #00fffc;
             --neon-pink: #ff00ff;
-            --dark: #0f172a;
-            --darker: #020617;
+            --neon-purple: #a855f7;
+            --dark: #0a0f1e;
+            --darker: #050814;
             --light: #f8fafc;
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-            --neon-gradient: linear-gradient(45deg, var(--neon), var(--neon-pink), var(--accent));
+            --neon-gradient: linear-gradient(45deg, var(--neon), var(--neon-purple), var(--accent));
             --glass: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.18);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
             --glow: 0 0 10px rgba(0, 255, 252, 0.7), 0 0 20px rgba(0, 255, 252, 0.5);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
@@ -41,7 +65,8 @@
             overflow-x: hidden;
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 20%);
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 20%),
+                linear-gradient(to bottom, rgba(10, 15, 30, 0.9), rgba(5, 8, 20, 0.95));
         }
 
         h1, h2, h3, h4, h5 {
@@ -58,7 +83,7 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
             position: relative;
         }
 
@@ -66,7 +91,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 32px;
+            padding: 16px 32px;
             background: var(--gradient);
             color: white;
             border-radius: 50px;
@@ -80,7 +105,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -131,7 +156,7 @@
             color: var(--neon);
             box-shadow: var(--glow);
             text-shadow: 0 0 5px var(--neon);
-            padding: 12px 28px;
+            padding: 14px 28px;
             font-size: 0.95rem;
         }
 
@@ -146,7 +171,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow);
         }
 
         .neon-border {
@@ -587,6 +612,527 @@
             transform-origin: bottom left;
         }
 
+        /* Mission Statement Section */
+        .mission-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .mission-content {
+            flex: 1;
+        }
+
+        .mission-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--light), var(--accent), var(--neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mission-statement {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--light), var(--accent), var(--neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .mission-statement::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: var(--neon-gradient);
+            border-radius: 5px;
+        }
+
+        .mission-subtext {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .mission-visual {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mission-visual::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--neon));
+            animation: rotate 8s linear infinite;
+        }
+
+        .mission-visual::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--darker);
+            border-radius: 18px;
+        }
+
+        .mission-visual-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .mission-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: var(--neon-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Ad Evolution Program Section */
+        .evolution-program {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .evolution-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .evolution-badge {
+            display: inline-block;
+            background: var(--neon-gradient);
+            color: var(--darker);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .evolution-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--accent), var(--neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .evolution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .evolution-card {
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .evolution-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .evolution-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(14, 165, 233, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--accent);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .evolution-card:hover .evolution-icon {
+            transform: scale(1.1);
+            color: var(--neon);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+        }
+
+        .evolution-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .evolution-card p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Global Lab Concept Section */
+        .global-lab {
+            padding: 100px 0;
+            position: relative;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(15, 23, 42, 0.9));
+        }
+
+        .lab-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .lab-visual {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lab-dashboard {
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .dashboard-row {
+            display: flex;
+            gap: 15px;
+            height: 25%;
+        }
+
+        .dashboard-item {
+            flex: 1;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon);
+            font-size: 0.9rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .dashboard-item:nth-child(odd)::before {
+            animation: dashboard-shine 3s infinite;
+            animation-delay: 0.5s;
+        }
+
+        .dashboard-item:nth-child(even)::before {
+            animation: dashboard-shine 3s infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes dashboard-shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .lab-content {
+            flex: 1;
+        }
+
+        .lab-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--light), var(--accent), var(--neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lab-content p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .lab-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .lab-stat {
+            text-align: center;
+        }
+
+        .lab-stat h3 {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+            text-shadow: 0 0 8px rgba(14, 165, 233, 0.5);
+        }
+
+        .lab-stat p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+        }
+
+        /* Services Section */
+        .services {
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 70px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(to right, var(--light), var(--accent), var(--neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            padding: 35px;
+            border-radius: 20px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(15, 23, 42, 0.4));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(15, 23, 42, 0.5));
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: rgba(14, 165, 233, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            color: var(--accent);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: var(--neon);
+            box-shadow: 0 0 12px rgba(14, 165, 233, 0.5);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            color: white;
+        }
+
+        .service-card p {
+            color: #cbd5e1;
+            margin-bottom: 22px;
+            flex-grow: 1;
+            font-size: 1rem;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .service-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .service-link:hover {
+            color: var(--neon);
+            text-shadow: 0 0 5px rgba(0, 255, 252, 0.5);
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Vision Section */
+        .vision-section {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .vision-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .vision-header {
+            margin-bottom: 50px;
+        }
+
+        .vision-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--light), var(--accent), var(--neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .vision-header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .vision-roadmap {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 60px 0;
+        }
+
+        .vision-roadmap::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-gradient);
+            z-index: 0;
+        }
+
+        .vision-milestone {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 30%;
+        }
+
+        .milestone-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(14, 165, 233, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .vision-milestone:hover .milestone-icon {
+            transform: scale(1.1);
+            color: var(--neon);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+        }
+
+        .milestone-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .milestone-content p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
         /* Business Growth Graph Section */
         .business-growth {
             padding: 80px 0;
@@ -791,129 +1337,6 @@
         .legend-text {
             font-size: 0.9rem;
             color: #94a3b8;
-        }
-
-        /* Services Section */
-        .services {
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto 70px;
-        }
-
-        .section-header h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.2rem;
-            background: linear-gradient(to right, var(--light), var(--accent), var(--neon));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-header p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            padding: 35px;
-            border-radius: 20px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(15, 23, 42, 0.4));
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-12px);
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(15, 23, 42, 0.5));
-        }
-
-        .service-icon {
-            width: 65px;
-            height: 65px;
-            background: rgba(14, 165, 233, 0.1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            font-size: 1.6rem;
-            color: var(--accent);
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
-            color: var(--neon);
-            box-shadow: 0 0 12px rgba(14, 165, 233, 0.5);
-        }
-
-        .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 18px;
-            color: white;
-        }
-
-        .service-card p {
-            color: #cbd5e1;
-            margin-bottom: 22px;
-            flex-grow: 1;
-            font-size: 1rem;
-        }
-
-        .service-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .service-link i {
-            margin-left: 8px;
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-
-        .service-link:hover {
-            color: var(--neon);
-            text-shadow: 0 0 5px rgba(0, 255, 252, 0.5);
-        }
-
-        .service-link:hover i {
-            transform: translateX(5px);
         }
 
         /* Monthly Growth Lab Section */
@@ -1153,7 +1576,7 @@
             font-size: 0.95rem;
         }
 
-        /* Video Showcase Section - FIXED */
+        /* Video Showcase Section */
         .video-showcase {
             position: relative;
             padding: 90px 0;
@@ -1187,44 +1610,6 @@
             height: 100%;
             border: none;
             border-radius: 18px;
-        }
-
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, var(--primary-dark), var(--secondary));
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .video-placeholder i {
-            font-size: 3rem;
-            color: white;
-            z-index: 2;
-        }
-
-        .video-placeholder::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
-        .video-placeholder::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            background: var(--neon);
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: pulse 2s infinite;
         }
 
         /* Process Section */
@@ -1720,6 +2105,11 @@
             }
         }
 
+        /* Text Center Utility */
+        .text-center {
+            text-align: center;
+        }
+
         /* Enhanced Mobile Responsiveness */
         @media (max-width: 1100px) {
             .hero-content {
@@ -1743,6 +2133,32 @@
             .hero-stats {
                 justify-content: center;
             }
+
+            .mission-container,
+            .lab-container {
+                flex-direction: column;
+            }
+            
+            .mission-visual,
+            .lab-visual {
+                width: 100%;
+                margin-top: 40px;
+            }
+            
+            .vision-roadmap {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            .vision-roadmap::before {
+                display: none;
+            }
+            
+            .vision-milestone {
+                width: 100%;
+                max-width: 300px;
+            }
         }
 
         @media (max-width: 992px) {
@@ -1760,6 +2176,22 @@
             
             .floating-element {
                 display: none;
+            }
+
+            .mission-statement {
+                font-size: 1.5rem;
+            }
+            
+            .evolution-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .lab-content h2 {
+                font-size: 2rem;
+            }
+            
+            .vision-header h2 {
+                font-size: 2.2rem;
             }
         }
 
@@ -1954,6 +2386,11 @@
                 grid-template-columns: 1fr;
             }
             
+            .lab-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
             /* Improved mobile navigation */
             body.menu-open {
                 overflow: hidden;
@@ -1962,6 +2399,26 @@
             .nav-cta {
                 margin-left: auto;
                 padding-right: 15px;
+            }
+
+            .mission-statement {
+                font-size: 1.3rem;
+            }
+            
+            .evolution-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .lab-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .vision-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .evolution-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -2290,12 +2747,12 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="#" class="animated-text">Home</a></li>
+                    <li><a href="#mission" class="animated-text">Mission</a></li>
+                    <li><a href="#evolution" class="animated-text">Evolution</a></li>
                     <li><a href="#services" class="animated-text">Services</a></li>
-                    <li><a href="#growth-lab" class="animated-text">Growth Lab</a></li>
-                    <li><a href="#growth" class="animated-text">Results</a></li>
+                    <li><a href="#lab" class="animated-text">Global Lab</a></li>
+                    <li><a href="#vision" class="animated-text">Vision</a></li>
                     <li><a href="#pricing" class="animated-text">Pricing</a></li>
-                    <li><a href="#video-showcase" class="animated-text">Videos</a></li>
-                    <li><a href="#process" class="animated-text">Process</a></li>
                     <li><a href="https://www.motioncraft.xyz/portal.html" class="animated-text">Client Portal</a></li>
                 </ul>
                 <div class="nav-cta">
@@ -2315,12 +2772,12 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text fade-in">
-                    <span class="hero-tag">AI-Powered Ad Intelligence</span>
-                    <h1>Transform Data Into <span>Winning Content</span></h1>
-                    <p>Bangladesh's premier AI-driven content lab analyzing winning ads to craft sales-driven content that propels your business growth worldwide.</p>
+                    <span class="hero-tag">We Don't Just Create Ads — We Evolve Them</span>
+                    <h1>Engineering Behavior Through <span>Ad Evolution</span></h1>
+                    <p>The world's first AI-driven, human-powered Ad Intelligence Lab — delivering content and campaigns no one else can replicate.</p>
                     <div class="hero-btns">
                         <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'd%20like%20to%20book%20a%20call%20to%20discuss%20your%20services." class="btn">Book a Call</a>
-                        <a href="#services" class="btn btn-outline">Our Services</a>
+                        <a href="#evolution" class="btn btn-outline">Learn More</a>
                     </div>
                     <div class="hero-stats">
                         <div class="stat-item">
@@ -2374,6 +2831,199 @@
         </div>
     </section>
 
+    <!-- Mission Statement Section -->
+    <section id="mission" class="mission-section">
+        <div class="container">
+            <div class="mission-container">
+                <div class="mission-content fade-in">
+                    <h2>Our Mission</h2>
+                    <div class="mission-statement">
+                        "To build the world's first AI-driven, human-powered Ad Intelligence Lab — delivering content and campaigns no one else can replicate."
+                    </div>
+                    <p class="mission-subtext">
+                        We combine data-driven analysis with human creativity to create advertising that doesn't just capture attention — it evolves, learns, and drives higher conversions with every iteration.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#evolution" class="btn">Explore Our Process</a>
+                    </div>
+                </div>
+                <div class="mission-visual fade-in delay-1">
+                    <div class="mission-visual-content">
+                        <div class="mission-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h3>AI + Human Synergy</h3>
+                        <p>Where data meets creativity to engineer behavior</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Evolution Program Section -->
+    <section id="evolution" class="evolution-program">
+        <div class="container">
+            <div class="evolution-header fade-in">
+                <div class="evolution-badge">Signature Service</div>
+                <h2>Ad Evolution Program™</h2>
+                <p>Our unique approach combining AI intelligence with human creativity</p>
+            </div>
+            <div class="evolution-grid">
+                <div class="evolution-card glass fade-in">
+                    <div class="evolution-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Data Brain</h3>
+                    <p>Our proprietary AI analyzes thousands of winning ads across platforms to identify patterns and opportunities that drive conversions.</p>
+                </div>
+                <div class="evolution-card glass fade-in delay-1">
+                    <div class="evolution-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Human Creative Team</h3>
+                    <p>Experts add the emotional intelligence and creative spark that AI can't replicate, crafting compelling narratives that resonate.</p>
+                </div>
+                <div class="evolution-card glass fade-in delay-2">
+                    <div class="evolution-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Learning System</h3>
+                    <p>Every campaign learns from its performance data, continuously optimizing and evolving to deliver increasingly better results.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20the%20Ad%20Evolution%20Program." class="btn">Start Your Evolution</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Lab Concept Section -->
+    <section id="lab" class="global-lab">
+        <div class="container">
+            <div class="lab-container">
+                <div class="lab-visual fade-in">
+                    <div class="lab-dashboard">
+                        <div class="dashboard-row">
+                            <div class="dashboard-item">Emotion Response Database</div>
+                            <div class="dashboard-item">AI Pattern Recognition</div>
+                        </div>
+                        <div class="dashboard-row">
+                            <div class="dashboard-item">Performance Heatmaps</div>
+                            <div class="dashboard-item">Competitor Intelligence</div>
+                        </div>
+                        <div class="dashboard-row">
+                            <div class="dashboard-item">Creative Optimization</div>
+                            <div class="dashboard-item">A/B Testing Results</div>
+                        </div>
+                        <div class="dashboard-row">
+                            <div class="dashboard-item">Conversion Analytics</div>
+                            <div class="dashboard-item">Trend Forecasting</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lab-content fade-in delay-1">
+                    <h2>Global Ad Intelligence Lab</h2>
+                    <p>MotionCraft operates as a global laboratory for advertising excellence, where we combine cutting-edge AI technology with human creative expertise to engineer behavior-changing campaigns.</p>
+                    <p>Our unique approach ensures that every ad we create is backed by data, infused with emotional intelligence, and continuously optimized for peak performance.</p>
+                    <div class="lab-stats">
+                        <div class="lab-stat">
+                            <h3>100+</h3>
+                            <p>Niche Databases</p>
+                        </div>
+                        <div class="lab-stat">
+                            <h3>24/7</h3>
+                            <p>AI Monitoring</p>
+                        </div>
+                        <div class="lab-stat">
+                            <h3>Global</h3>
+                            <p>Creative Network</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Intelligent Solutions</h2>
+                <p>Advanced AI services designed to transform your advertising strategy</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card glass fade-in neon-border">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Ad Intelligence</h3>
+                    <p>Our proprietary AI analyzes thousands of winning ads across platforms to identify patterns and opportunities that drive conversions.</p>
+                    <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20AI%20Ad%20Intelligence%20services." class="service-link">Book a Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card glass fade-in delay-1 neon-border">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Transform raw data into actionable strategies that drive conversions and maximize ROI with our advanced analytics platform.</p>
+                    <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20Data-Driven%20Insights%20services." class="service-link">Book a Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card glass fade-in delay-2 neon-border">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Evolution Content</h3>
+                    <p>Our expert team crafts high-converting content based on AI-generated insights and current market trends for maximum impact.</p>
+                    <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20Content%20Creation%20services." class="service-link">Book a Call <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision-section">
+        <div class="container">
+            <div class="vision-container">
+                <div class="vision-header fade-in">
+                    <h2>Our Long-Term Vision</h2>
+                    <p>Building the future of advertising intelligence, one evolution at a time</p>
+                </div>
+                <div class="vision-roadmap">
+                    <div class="vision-milestone fade-in">
+                        <div class="milestone-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="milestone-content">
+                            <h3>Emotion Response Database</h3>
+                            <p>Build 100+ niche-based databases to understand emotional triggers across different audiences and markets.</p>
+                        </div>
+                    </div>
+                    <div class="vision-milestone fade-in delay-1">
+                        <div class="milestone-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="milestone-content">
+                            <h3>MotionAI Dashboard</h3>
+                            <p>Launch proprietary dashboard for clients to track performance, insights, and evolution of their campaigns in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="vision-milestone fade-in delay-2">
+                        <div class="milestone-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="milestone-content">
+                            <h3>Global Network</h3>
+                            <p>Establish a worldwide creative team network with MotionCraft-trained specialists delivering consistent excellence.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center fade-in delay-3">
+                    <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'd%20like%20to%20learn%20more%20about%20your%20vision%20and%20services." class="btn">Join Our Evolution</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Business Growth Graph Section -->
     <section id="growth" class="business-growth">
         <div class="container">
@@ -2410,42 +3060,6 @@
                         <div class="legend-color" style="background: #8b5cf6;"></div>
                         <div class="legend-text">Industry Average</div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Intelligent Solutions</h2>
-                <p>Advanced AI services designed to transform your advertising strategy</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card glass fade-in neon-border">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>AI Ad Intelligence</h3>
-                    <p>Our proprietary AI analyzes thousands of winning ads across platforms to identify patterns and opportunities that drive conversions.</p>
-                    <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20AI%20Ad%20Intelligence%20services." class="service-link">Book a Call <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card glass fade-in delay-1 neon-border">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Data-Driven Insights</h3>
-                    <p>Transform raw data into actionable strategies that drive conversions and maximize ROI with our advanced analytics platform.</p>
-                    <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20Data-Driven%20Insights%20services." class="service-link">Book a Call <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card glass fade-in delay-2 neon-border">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Business Content</h3>
-                    <p>Our expert team crafts high-converting content based on AI-generated insights and current market trends for maximum impact.</p>
-                    <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20Content%20Creation%20services." class="service-link">Book a Call <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -2511,10 +3125,43 @@
                 </div>
             </div>
             
-           
+            <div class="growth-lab-process">
+                <h3 class="fade-in">How Our Growth Lab Works</h3>
+                <div class="process-steps">
+                    <div class="process-step glass fade-in">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Deep Analysis</h4>
+                        <p>Comprehensive audit of your current content and competitor strategies</p>
+                    </div>
+                    <div class="process-step glass fade-in delay-1">
+                        <div class="step-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Strategy Development</h4>
+                        <p>Custom content strategy based on AI insights and market trends</p>
+                    </div>
+                    <div class="process-step glass fade-in delay-2">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Implementation</h4>
+                        <p>Creation and deployment of high-converting content across platforms</p>
+                    </div>
+                    <div class="process-step glass fade-in delay-3">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Optimization</h4>
+                        <p>Continuous monitoring and refinement based on performance data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Video Showcase Section - FIXED -->
+    <!-- Video Showcase Section -->
     <section id="video-showcase" class="video-showcase">
         <div class="container">
             <div class="section-header fade-in">
@@ -2530,6 +3177,46 @@
                 </div>
                 <div class="video-card glass fade-in delay-2">
                     <iframe src="https://www.youtube.com/embed/vaxZ8F4YmnE" title="MotionCraft Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Winning Process</h2>
+                <p>How our AI-powered system delivers exceptional results</p>
+            </div>
+            <div class="process-container">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content glass neon-border">
+                        <h3>AI Analysis</h3>
+                        <p>Our AI agent scans and compares thousands of winning ads across platforms to identify successful patterns and strategies.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in delay-1">
+                    <div class="step-number">2</div>
+                    <div class="step-content glass neon-border">
+                        <h3>Intelligence Report</h3>
+                        <p>Detailed report highlighting winning patterns, competitor strategies, and market opportunities sent to our analysis team.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in delay-2">
+                    <div class="step-number">3</div>
+                    <div class="step-content glass neon-border">
+                        <h3>Content Creation</h3>
+                        <p>Experts craft sales-driven content based on data insights, tailored to your brand and target audience for maximum impact.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in delay-3">
+                    <div class="step-number">4</div>
+                    <div class="step-content glass neon-border">
+                        <h3>Performance Tracking</h3>
+                        <p>Continuous optimization based on real-time performance data to ensure your content remains effective and competitive.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2652,46 +3339,6 @@
                         </ul>
                     </div>
                     <a href="https://wa.me/8801322149482?text=Hello%20MotionCraft!%20I'm%20interested%20in%20the%20Enterprise%20plan%20($1000)." class="btn btn-outline">Get Started</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Our Winning Process</h2>
-                <p>How our AI-powered system delivers exceptional results</p>
-            </div>
-            <div class="process-container">
-                <div class="process-step fade-in">
-                    <div class="step-number">1</div>
-                    <div class="step-content glass neon-border">
-                        <h3>AI Analysis</h3>
-                        <p>Our AI agent scans and compares thousands of winning ads across platforms to identify successful patterns and strategies.</p>
-                    </div>
-                </div>
-                <div class="process-step fade-in delay-1">
-                    <div class="step-number">2</div>
-                    <div class="step-content glass neon-border">
-                        <h3>Intelligence Report</h3>
-                        <p>Detailed report highlighting winning patterns, competitor strategies, and market opportunities sent to our analysis team.</p>
-                    </div>
-                </div>
-                <div class="process-step fade-in delay-2">
-                    <div class="step-number">3</div>
-                    <div class="step-content glass neon-border">
-                        <h3>Content Creation</h3>
-                        <p>Experts craft sales-driven content based on data insights, tailored to your brand and target audience for maximum impact.</p>
-                    </div>
-                </div>
-                <div class="process-step fade-in delay-3">
-                    <div class="step-number">4</div>
-                    <div class="step-content glass neon-border">
-                        <h3>Performance Tracking</h3>
-                        <p>Continuous optimization based on real-time performance data to ensure your content remains effective and competitive.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -2975,7 +3622,7 @@
         window.addEventListener('load', animateOnScroll);
 
         // Add animation classes to elements
-        document.querySelectorAll('.service-card, .pricing-card, .process-step, .video-card, .growth-lab-card, .process-steps .process-step').forEach(el => {
+        document.querySelectorAll('.service-card, .pricing-card, .process-step, .video-card, .growth-lab-card, .process-steps .process-step, .evolution-card, .vision-milestone').forEach(el => {
             el.classList.add('animate-on-scroll');
         });
 
