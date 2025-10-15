@@ -1335,7 +1335,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Revenue counter animation with full "$0 → $2,341,000+" format
+            // Revenue counter animation with full "$0 → $20000+" format
             const revenueCounter = document.getElementById('revenueCounter');
             const targetRevenue = 2341000;
             let currentRevenue = 0;
@@ -1344,7 +1344,7 @@
             const revenueTimer = setInterval(() => {
                 currentRevenue += increment;
                 if (currentRevenue >= targetRevenue) {
-                    revenueCounter.textContent = '$0 → $2,341,000+';
+                    revenueCounter.textContent = '$0 → $20000+';
                     clearInterval(revenueTimer);
                 } else {
                     revenueCounter.textContent = '$0 → $' + Math.floor(currentRevenue).toLocaleString();
